@@ -1,0 +1,19 @@
+#search-container {
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+}
+
+#reservation-options-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.reservation-options-element {
+  display: inline-block;
+}
+
+#search-button-container {
+  display: flex;
+  justify-content: center;
+}
