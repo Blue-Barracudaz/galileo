@@ -4,11 +4,13 @@
   justify-content: space-evenly;
   height: 30%;
 }
+#search-options-container {
+  margin: 40px;
+}
 
 #reservation-options-container {
   display: flex;
-  justify-content: space-around;
-  /* max-width: 600px; */
+  justify-content: space-between;
 }
 
 .reservation-options-element {

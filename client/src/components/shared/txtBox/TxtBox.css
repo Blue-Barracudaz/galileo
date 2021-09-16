@@ -3,7 +3,7 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  /* max-width: 600px; */
   align-items: flex-start;
 }
 
