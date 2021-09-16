@@ -46,7 +46,7 @@ export default (props) => {
       </Sheet > */}
 
       {/* Submodal */}
-      <Sheet disableDrag={true} isOpen={props.isModalOpen} onClose={() => {}} snapPoints={[0.28]}>
+      <Sheet disableDrag={true} isOpen={props.isModalOpen} onClose={() => {}} snapPoints={[0.3]}>
         <Sheet.Container>
           <Sheet.Header>
             <div style={{ marginLeft: '95%', width: "100%" }}>
