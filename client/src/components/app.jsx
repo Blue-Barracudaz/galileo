@@ -42,7 +42,7 @@ class App extends React.Component {
         <MapView />
         <ManageSpots />
         <Profile type={'update'} />
-        <Login />
+         <Login />
       </div>
     )
   };

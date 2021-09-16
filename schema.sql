@@ -33,8 +33,8 @@ CREATE TABLE bookings (
 CREATE INDEX spots_gix  ON spots USING GIST (geom);
 
 -- Add 2 rows
--- INSERT INTO spots (host_id, lat, long, address, type, price, photo_url, geom) VALUES (1, 41.3954, 2.162, 'location1', 'driveway', 5, 'photo1', 'POINT(41.3954 2.162)');
--- INSERT INTO spots (host_id, lat, long, address, type, price, photo_url, geom) VALUES (1, 41.3917, 2.1649, 'location2', 'driveway', 15, 'photo2', 'POINT(41.3917 2.1649)');
+INSERT INTO spots (host_id, lat, long, address, type, price, photo_url, geom) VALUES (1, 41.3954, 2.162, 'location1', 'driveway', 5, 'photo1', 'POINT(41.3954 2.162)');
+INSERT INTO spots (host_id, lat, long, address, type, price, photo_url, geom) VALUES (1, 41.3917, 2.1649, 'location2', 'driveway', 15, 'photo2', 'POINT(41.3917 2.1649)');
 
 -- Normal search query
 -- SELECT spot_id, host_id, lat, long, address, type, price, photo_url, ST_AsText(geom) AS geom FROM spots;
