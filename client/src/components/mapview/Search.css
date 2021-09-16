@@ -19,7 +19,20 @@
   border: 3px solid #cdc4f2;
   border-radius: 8px;
   box-sizing: border-box;
-  height: 100px;
+  height: 75px;
+  width: 200px;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+select {
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+  height: 75px;
   width: 200px;
 }
 
