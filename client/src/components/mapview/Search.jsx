@@ -100,7 +100,7 @@ class Search extends React.Component {
         </div>
         <div id="search-button-container">
           <div id="search-button">
-          <Button text={'Search'} width={'325px'} height={'50px'} func={this.handleSearch}/>
+          <Button text={'Search'} width={'500px'} height={'100px'} func={this.handleSearch}/>
           </div>
         </div>
       </div>

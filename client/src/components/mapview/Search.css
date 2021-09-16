@@ -8,6 +8,7 @@
 #reservation-options-container {
   display: flex;
   justify-content: space-around;
+  /* max-width: 600px; */
 }
 
 .reservation-options-element {
@@ -17,6 +18,9 @@
 .react-datepicker__input-container input{
   border: 3px solid #cdc4f2;
   border-radius: 8px;
+  box-sizing: border-box;
+  height: 100px;
+  width: 200px;
 }
 
 #search-button-container {
