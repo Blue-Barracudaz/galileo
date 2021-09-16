@@ -24,7 +24,7 @@
   display: inline-block;
 }
 
-.react-datepicker__input-container input{
+.react-datepicker__input-container input {
   border: 3px solid #cdc4f2;
   border-radius: 8px;
   box-sizing: border-box;
@@ -34,6 +34,10 @@
   font-family: Helvetica, sans-serif;
   font-size: x-large;
   font-weight: bold;
+}
+
+.Picker label {
+  display: block;
 }
 
 select {

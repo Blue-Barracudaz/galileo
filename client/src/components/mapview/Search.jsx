@@ -79,24 +79,23 @@ class Search extends React.Component {
       <div id="search-container">
         {/* <div>{this.props.spotsFound}</div> */}
         <div id="search-options-container">
-          <TxtBox label={'Location'} placeholder={'Where are you going?'}handleInput={this.handleAddressInput}/>
-
+          <TxtBox label={'Location'} placeholder={'Where are you going?'} handleInput={this.handleAddressInput}/>
           <div id="reservation-options-container">
             <div className="reservation-options-element">
               <div className="search-label">Start Date</div>
+              {/* <label>{'Start Date'}</label> */}
               <DatePicker selected={this.state.startDate} onChange={this.handleStartDateSelect} />
             </div>
             <div className="reservation-options-element">
               <div className="search-label">End Date</div>
+              {/* <label>{'End Date'}</label> */}
               <DatePicker selected={this.state.endDate} onChange={this.handleEndDateSelect} />
             </div>
             <div className="reservation-options-element">
-              <div className="search-label">Start Time</div>
-              <Picker options={times} initialValue={times[0]} onChangeCB={this.handleStartTimeSelect}/>
+              <Picker label={'Start Time'} options={times} initialValue={times[0]} onChangeCB={this.handleStartTimeSelect}/>
             </div>
             <div className="reservation-options-element">
-            <div className="search-label">End Time</div>
-              <Picker options={times} initialValue={times[1]} onChangeCB={this.handleEndTimeSelect}/>
+              <Picker label={'End Time'} options={times} initialValue={times[1]} onChangeCB={this.handleEndTimeSelect}/>
             </div>
           </div>
         </div>

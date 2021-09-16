@@ -53,7 +53,7 @@ export default (props) => {
               <h1 onClick={() => props.onModalClose()}>{'\u2715'}</h1>
             </div>
           </Sheet.Header>
-          <Sheet.Header>{props.modalHeaderContent}</Sheet.Header>
+          {/* <Sheet.Header>{props.modalHeaderContent}</Sheet.Header> */}
           <Sheet.Content>
             {props.modalContent || <h1>No Content Present</h1>}
           </Sheet.Content>
