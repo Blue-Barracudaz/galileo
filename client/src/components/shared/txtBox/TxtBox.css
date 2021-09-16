@@ -22,3 +22,8 @@
   box-sizing: border-box;
   font-size: medium;
 }
+
+label {
+  font-family: Helvetica, sans-serif;
+  color: #707070;
+}

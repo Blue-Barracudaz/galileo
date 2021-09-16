@@ -77,24 +77,25 @@ class Search extends React.Component {
 
     return (
       <div id="search-container">
+        {/* <div>{this.props.spotsFound}</div> */}
         <div id="search-options-container">
           <TxtBox label={'Location'} handleInput={this.handleAddressInput}/>
 
           <div id="reservation-options-container">
             <div className="reservation-options-element">
-              <div>Start Date</div>
+              <div className="search-label">Start Date</div>
               <DatePicker selected={this.state.startDate} onChange={this.handleStartDateSelect} />
             </div>
             <div className="reservation-options-element">
-              <div>End Date</div>
+              <div className="search-label">End Date</div>
               <DatePicker selected={this.state.endDate} onChange={this.handleEndDateSelect} />
             </div>
             <div className="reservation-options-element">
-              <div>Start Time</div>
+              <div className="search-label">Start Time</div>
               <Picker options={times} initialValue={times[0]} onChangeCB={this.handleStartTimeSelect}/>
             </div>
             <div className="reservation-options-element">
-            <div>End Time</div>
+            <div className="search-label">End Time</div>
               <Picker options={times} initialValue={times[1]} onChangeCB={this.handleEndTimeSelect}/>
             </div>
           </div>

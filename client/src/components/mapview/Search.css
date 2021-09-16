@@ -1,16 +1,23 @@
 #search-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   height: 30%;
 }
+
 #search-options-container {
-  margin: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 #reservation-options-container {
   display: flex;
   justify-content: space-between;
+}
+
+.search-label {
+  font-family: Helvetica, sans-serif;
+  color: #707070;
 }
 
 .reservation-options-element {
@@ -22,7 +29,7 @@
   border-radius: 8px;
   box-sizing: border-box;
   height: 75px;
-  width: 200px;
+  width: 175px;
   text-align: center;
   font-family: Helvetica, sans-serif;
   font-size: x-large;
@@ -35,10 +42,11 @@ select {
   font-size: x-large;
   font-weight: bold;
   height: 75px;
-  width: 200px;
+  width: 175px;
 }
 
 #search-button-container {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
 }

@@ -95,7 +95,10 @@ class MapView extends React.Component {
           deSelectSpot={this.deSelectSpot}
           openBottomModal={this.openBottomModal}
         />
-        <Search getFreeSpotsAndUpdate={this.getFreeSpotsAndUpdate}/>
+        <Search
+          // spotsFound={this.state.spots.length === 1 ? '1 nearby spot' : `${this.state.spots.length} nearby spots`}
+          getFreeSpotsAndUpdate={this.getFreeSpotsAndUpdate}
+        />
         <BottomModal
           isModalOpen={this.state.showBottomModal}
           modalHeaderContent={<div>{this.state.spots.length === 1 ? '1 nearby spot' : `${this.state.spots.length} nearby spots`}</div>}
