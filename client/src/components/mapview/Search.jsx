@@ -78,7 +78,7 @@ class Search extends React.Component {
     return (
       <div id="search-container">
         <div id="search-field-container">
-          <TxtBox label={'search'} handleInput={this.handleAddressInput}/>
+          <TxtBox label={'Location'} handleInput={this.handleAddressInput}/>
         </div>
         <div id="reservation-options-container">
           <div className="reservation-options-element">
