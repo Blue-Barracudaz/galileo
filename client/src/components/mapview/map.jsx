@@ -43,6 +43,9 @@ class MapContainer extends React.Component {
               )
             })
           }
+          {
+            this.props.searchMade && <Marker position={this.props.center} // user searched location marker
+          />}
         </GoogleMap>
       </LoadScript>
     )

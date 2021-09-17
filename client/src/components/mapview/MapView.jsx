@@ -86,8 +86,8 @@ class MapView extends React.Component {
           spots={this.state.spots}
           selectSpot={this.selectSpot}
           spotSelected={this.state.spotSelected}
-          deSelectSpot={this.deSelectSpot}
           openBottomModal={this.openBottomModal}
+          searchMade={this.state.reservationStartTime}
         />
         <Search
           // spotsFound={this.state.spots.length === 1 ? '1 nearby spot' : `${this.state.spots.length} nearby spots`}
