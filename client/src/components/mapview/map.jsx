@@ -29,7 +29,7 @@ class MapContainer extends React.Component {
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={this.props.center}
-          zoom={16}
+          zoom={17}
         >
           {
             this.props.spots.map((spot) => {
