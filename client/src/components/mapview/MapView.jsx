@@ -90,7 +90,8 @@ class MapView extends React.Component {
           searchMade={this.state.reservationStartTime}
         />
         <Search
-          // spotsFound={this.state.spots.length === 1 ? '1 nearby spot' : `${this.state.spots.length} nearby spots`}
+          // userSearched={this.state.reservationStartTime}
+          spotsFound={this.state.spots.length === 1 ? '1 nearby spot' : `${this.state.spots.length} nearby spots`}
           getFreeSpotsAndUpdate={this.getFreeSpotsAndUpdate}
         />
         <BottomModal

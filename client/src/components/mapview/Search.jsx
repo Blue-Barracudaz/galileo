@@ -77,7 +77,7 @@ class Search extends React.Component {
 
     return (
       <div id="search-container">
-        {/* <div>{this.props.spotsFound}</div> */}
+        <div>{this.props.spotsFound}</div>
         <div id="search-options-container">
           <TxtBox label={'Location'} placeholder={'Where are you going?'} handleInput={this.handleAddressInput}/>
           <div id="reservation-options-container">
