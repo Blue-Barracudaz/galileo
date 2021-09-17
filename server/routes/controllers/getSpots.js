@@ -4,7 +4,7 @@ const getSpotsRoute = (req, res) => {
   return models.getSpots()
     .then((spots) => {
       console.log('SPOTS CONTROLLER', spots)
-      res.send(spots)
+      res.status(200).send(spots)
     })
     .catch ((err) => {
       console.log('ERRRO GETTING SPOTS FROM DB IN CONTROLLER', err)
