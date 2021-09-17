@@ -26,7 +26,6 @@ class MapView extends React.Component {
     this.openBottomModal = this.openBottomModal.bind(this);
     this.closeBottomModal = this.closeBottomModal.bind(this);
     this.selectSpot = this.selectSpot.bind(this);
-    // this.deSelectSpot = this.deSelectSpot.bind(this);
   }
 
   getFreeSpots(lat, lng, start, end) {
@@ -78,13 +77,6 @@ class MapView extends React.Component {
       spotSelected: true,
     });
   }
-
-  // deSelectSpot() {
-  //   this.setState({
-  //     selectedSpot: '',
-  //     spotSelected: false
-  //   });
-  // }
 
   render() {
     return (
