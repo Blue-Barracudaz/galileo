@@ -3,7 +3,6 @@ import Map from './map.jsx';
 import Search from './Search.jsx';
 import BottomModal from '../shared/bottomModal/BottomModal.jsx';
 import ModalContent from './ModalContent.jsx';
-import fakeSpots from './fakeSpots.js';
 
 class MapView extends React.Component {
   constructor(props) {
@@ -19,17 +18,23 @@ class MapView extends React.Component {
       reservationEndDate: null, // to be passed to modal view
       spots: [], // passed to map component and rendered
       selectedSpot: '', // passed to modal
-      showBottomModal: false
+      showBottomModal: false,
+      spotSelected: false,
     };
     this.getFreeSpots = this.getFreeSpots.bind(this);
     this.getFreeSpotsAndUpdate = this.getFreeSpotsAndUpdate.bind(this);
     this.openBottomModal = this.openBottomModal.bind(this);
     this.closeBottomModal = this.closeBottomModal.bind(this);
     this.selectSpot = this.selectSpot.bind(this);
+    this.deSelectSpot = this.deSelectSpot.bind(this);
   }
 
   getFreeSpots(lat, lng, start, end) {
-    return Promise.resolve(fakeSpots); // TODO replace with a GET to the server
+    return fetch(`http://localhost:3000/spots?lat=${lat.toString()}&lng=${lng.toString()}&start=${start.toString()}&end=${end.toString()}`)
+    .then((resp) => resp.json())
+    .catch((err) => {
+      console.log('ERROR GETTING SPOTS', err);
+    })
   }
 
   getFreeSpotsAndUpdate(lat, lng, UNIXstart, UNIXend, startTime, endTime, startDate, endDate) {
@@ -45,7 +50,7 @@ class MapView extends React.Component {
           reservationEndTime: endTime,
           reservationStartDate: startDate,
           reservationEndDate: endDate
-        }, () => console.log(this.state));
+        }, () => console.log('map component state after get request: ', this.state));
       })
       .catch((err) => {
         console.log('ERROR: ', err);
@@ -61,23 +66,39 @@ class MapView extends React.Component {
   closeBottomModal() {
     this.setState({
       showBottomModal: false,
+      spotSelected: false
     });
   }
 
   selectSpot(spot) {
     this.setState({
-      selectedSpot: spot
+      selectedSpot: spot,
+      spotSelected: true,
+    });
+  }
+
+  deSelectSpot() {
+    this.setState({
+      selectedSpot: '',
+      spotSelected: false
     });
   }
 
   render() {
     return (
       <div className="map-view" style={{ width: "100vw", height: "100vh" }}>
-        <Map center={this.state.center} spots={this.state.spots} selectSpot={this.selectSpot} openBottomModal={this.openBottomModal}/>
+        <Map
+          center={this.state.center}
+          spots={this.state.spots}
+          selectSpot={this.selectSpot}
+          spotSelected={this.state.spotSelected}
+          deSelectSpot={this.deSelectSpot}
+          openBottomModal={this.openBottomModal}
+        />
         <Search getFreeSpotsAndUpdate={this.getFreeSpotsAndUpdate}/>
         <BottomModal
           isModalOpen={this.state.showBottomModal}
-          modalHeaderContent={(<div>this is the modal header</div>)}
+          modalHeaderContent={<div>{this.state.spots.length === 1 ? '1 nearby spot' : `${this.state.spots.length} nearby spots`}</div>}
           modalContent={<ModalContent
             address={this.state.selectedSpot.address}
             price={this.state.selectedSpot.price}

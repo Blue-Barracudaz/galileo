@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Profile = require('./controllers/Profile');
 const getSpotsRoute = require('./controllers/getSpots').getSpotsRoute;
+const getFreeSpotsRoute = require('./controllers/getSpots').getFreeSpotsRoute;
 
 const profileRequests = require('./controllers/profileRequests');
 const { getUser } = require('./controllers/getUser');
@@ -14,7 +15,8 @@ router.get('/profile', profileRequests.getProfile); // only for testing
 router.get('/my-profile/:user_id', Profile.getProfile);
 router.post('/create-account', Profile.createProfile);
 router.put('/update-my-profile', Profile.updateProfile);;
-router.get('/spots', getSpotsRoute);
+// router.get('/spots', getSpotsRoute);
+router.get('/spots', getFreeSpotsRoute);  // I added this
 router.post('/login', getUser);
 router.get('/my-spots', Spot.getMySpots);
 router.get('/spot-details', Spot.getSpotDetails);
