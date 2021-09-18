@@ -4,7 +4,7 @@ const getSpotsRoute = (req, res) => {
   return models.getSpots()
     .then((spots) => {
       console.log('SPOTS CONTROLLER', spots)
-      res.send(spots)
+      res.status(200).send(spots)
     })
     .catch ((err) => {
       console.log('ERRRO GETTING SPOTS FROM DB IN CONTROLLER', err)
@@ -12,4 +12,16 @@ const getSpotsRoute = (req, res) => {
     })
 };
 
+const getFreeSpotsRoute = (req, res) => { // I added this
+  console.log('req.query:', req.query);
+  return models.getFreeSpots(req.query.lat, req.query.lng, req.query.start, req.query.end)
+    .then((spots) => {
+      res.status(200).send(spots);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    })
+}
+
 module.exports.getSpotsRoute = getSpotsRoute;
+module.exports.getFreeSpotsRoute = getFreeSpotsRoute; // I added this

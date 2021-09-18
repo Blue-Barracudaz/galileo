@@ -4,7 +4,7 @@ import Geocode from "react-geocode";
 
 const containerStyle = {
   width: '100%',
-  height: '100%'
+  height: '70%'
 };
 
 class MapContainer extends React.Component {
@@ -12,19 +12,13 @@ class MapContainer extends React.Component {
     super(props);
     this.state = {
       selected: {},
-      // locations: []
     }
   }
 
-  onClick = (item) => {
-    // console.log('marker: ', item);
-    this.setState({selected: item});
-    this.props.selectSpot(item);
-    this.props.openBottomModal();
-  }
-
-  onClose = () => {
-    this.setState({ selected: {} })
+  onClick = (spot) => {
+    this.setState({selected: spot});
+    this.props.selectSpot(spot);
+    this.props.openBottomModal(); //TODO this could be improved by not opening the modal if it's already open...
   }
 
   render() {
@@ -35,29 +29,20 @@ class MapContainer extends React.Component {
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={this.props.center}
-          zoom={14}
+          zoom={16}
         >
-          { /* Child components, such as markers, info windows, etc. */}
           {
-            this.props.spots.map((item, index) => {
+            this.props.spots.map((spot) => {
               return (
-                <Marker key={index} position={item.location} onClick={() => this.onClick(item)} />
+                <Marker
+                  key={spot.spot_id}
+                  icon={this.props.spotSelected && this.state.selected.spot_id === spot.spot_id ? {url: './markerActive.png'} : {url: './marker.png'}}
+                  position={spot.location}  // TODO update positioning of custom marker icon
+                  onClick={() => this.onClick(spot)}
+                />
               )
             })
           }
-          {
-            this.state.selected.location &&
-            (
-              <InfoWindow
-                position={this.state.selected.location}
-                clickable={true}
-                onCloseClick={this.onClose}
-              >
-                <p>{this.state.selected.address}</p>
-              </InfoWindow>
-            )
-          }
-          <></>
         </GoogleMap>
       </LoadScript>
     )
