@@ -5,6 +5,13 @@
   height: 30%;
 }
 
+#search-result-count {
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bold;
+}
+
 #search-options-container {
   margin-left: 40px;
   margin-right: 40px;

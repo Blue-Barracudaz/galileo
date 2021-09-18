@@ -87,10 +87,10 @@ class MapView extends React.Component {
           selectSpot={this.selectSpot}
           spotSelected={this.state.spotSelected}
           openBottomModal={this.openBottomModal}
-          searchMade={this.state.reservationStartTime}
+          searchMade={this.state.reservationStartTime} // using reservation start to indicate if a search has been made. it will be null until user searches...
         />
         <Search
-          // userSearched={this.state.reservationStartTime}
+          searchMade={this.state.reservationStartTime} // using reservation start to indicate if a search has been made. it will be null until user searches...
           spotsFound={this.state.spots.length === 1 ? '1 nearby spot' : `${this.state.spots.length} nearby spots`}
           getFreeSpotsAndUpdate={this.getFreeSpotsAndUpdate}
         />
