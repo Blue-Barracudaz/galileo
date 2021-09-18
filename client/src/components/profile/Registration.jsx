@@ -99,12 +99,12 @@ class Registration extends React.Component {
     if (this.props.btn === 'Save Information') {
       className = 'updateContainer';
       username = localStorage.getItem('username') || ' ';
-      change = () => console.log('username: ', username);
+      // change = () => console.log('username: ', username);
       // console.log('username:', username)
     } else {
       className = 'registrationContainer';
       username = this.state.username;
-      change = this.handleChange.bind(this);
+      // change = this.handleChange.bind(this);
     }
 
     return (
@@ -114,7 +114,8 @@ class Registration extends React.Component {
           <form onSubmit = {this.submit.bind(this)} className={className}>
 
             <label>Username</label>
-            <input required type="text" id="username" className="registrationInput" value ={username} onChange={change} ></input>
+            {/* <input required type="text" id="username" className="registrationInput" value ={username} onChange={change} ></input> */}
+            <input required type="text" id="username" className="registrationInput" value ={username} onChange={this.handleChange.bind(this)} disabled={this.props.btn === 'Save Information'}></input>
             <label>Password</label>
             <input required type="text" id="password" className="registrationInput" value ={this.state.password} onChange={this.handleChange.bind(this)}></input>
             <label>Email</label>

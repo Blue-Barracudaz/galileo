@@ -10,7 +10,8 @@ import TabSelector from './shared/tabSelector/TabSelector.jsx'
 import MyBookings from './myBookings/myBookings.jsx';
 
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link,
