@@ -21,7 +21,6 @@ class Icon extends React.Component {
     return (
       <img className="icon"
         id={this.props.id}
-        // onClick={(e) => { this.props.onClick(e); }}
         src={this.props.isActive ? `${this.props.activeState}` : `${this.props.inactiveState}`}></img>
     );
   }
@@ -34,17 +33,7 @@ class TabSelector extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   selectedItem: 0
-    // }
   }
-
-  // onClick(e) {
-  //   this.setState({ selectedItem: e.target.id });
-  //   if (this.props.onChange) {
-  //     this.props.onChange(e.target.id);
-  //   }
-  // }
 
   render() {
     return (

@@ -5,7 +5,6 @@ import Button from '../shared/button/button.jsx';
 import Login from '../login/Login.jsx';
 import $ from 'jquery';
 import TabSelector from '../shared/tabSelector/TabSelector.jsx'
-
 import {
   withRouter,
   Link,
@@ -51,11 +50,6 @@ class Registration extends React.Component {
     });
   }
 
-  // backtoLogin(){
-  //   // console.log('backtoLogin');
-  //   this.setState({back:true})
-  // }
-
   submit(event) {
     event.preventDefault();
     this.props.handleUser(this.state);
@@ -65,13 +59,11 @@ class Registration extends React.Component {
   showBacktoLogin(){
     if (this.props.btn === 'Finish Registration') {
       return (
-        // <div className="backtoLogin" onClick={this.backtoLogin.bind(this)}>
         <div className="backtoLogin" onClick={() => {
           localStorage.removeItem('username');
           localStorage.removeItem('user_id');
         }}>
           <div className="backBtn">{'\u1438'} </div>
-          {/* <div className="backWord"> Back to Login</div> */}
           <div className="backWord"> <Link to="/">Back to Login</Link></div>
         </div>
       )
@@ -92,16 +84,13 @@ class Registration extends React.Component {
           localStorage.removeItem('username');
           localStorage.removeItem('user_id');
         }}>
-          {/* <div className="backBtn">{'\u1438'} </div> */}
-          {/* <div className="backWord"> Back to Login</div> */}
-          <div className="logOutWord"> <Link to="/">Log Out</Link></div>
+            <div className="logOutWord"> <Link to="/">Log Out</Link></div>
         </div>
       )
     }
   }
 
   render() {
-    // console.log(this.props)
     if (this.state.back)
       {return (
         <Login />
@@ -111,12 +100,11 @@ class Registration extends React.Component {
     if (this.props.btn === 'Save Information') {
       className = 'updateContainer';
       username = localStorage.getItem('username') || ' ';
-      // change = () => console.log('username: ', username);
-      // console.log('username:', username)
+
     } else {
       className = 'registrationContainer';
       username = this.state.username;
-      // change = this.handleChange.bind(this);
+
     }
 
     return (
@@ -127,7 +115,6 @@ class Registration extends React.Component {
           <form onSubmit = {this.submit.bind(this)} className={className}>
 
             <label>Username</label>
-            {/* <input required type="text" id="username" className="registrationInput" value ={username} onChange={change} ></input> */}
             <input required type="text" id="username" className="registrationInput" value ={username} onChange={this.handleChange.bind(this)} disabled={this.props.btn === 'Save Information'}></input>
             <label>Password</label>
             <input required type="text" id="password" className="registrationInput" value ={this.state.password} onChange={this.handleChange.bind(this)}></input>
