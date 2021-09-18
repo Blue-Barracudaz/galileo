@@ -19,6 +19,7 @@ export default ({ address, price, photo, spot_id, reservationStartTime, reservat
           address: address,
           price: price,
           spot_id: spot_id,
+          photo: photo,
           startTime: reservationStartTime,
           endTime: reservationEndTime,
           startDate: reservationStartDate,
