@@ -19,6 +19,9 @@ class UpdateSpot extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSaveClick = this.handleSaveClick.bind(this);
+    this.setPhotoUrl = this.setPhotoUrl.bind(this);
+    this.sendFile = this.sendFile.bind(this);
+
   }
 
   componentDidMount() {
@@ -30,7 +33,7 @@ class UpdateSpot extends React.Component {
           address: data.address,
           type: data.type,
           price: data.price,
-          photo: data.photo || '',
+          photo: data.photo_url || '',
           spotId: this.props.id
         })
       })
@@ -43,7 +46,6 @@ class UpdateSpot extends React.Component {
     axios.put('http://localhost:3000/update-spot-details', options)
       .then( async () => {
         console.log('success updating');
-        // maybe not necessary
         await this.setState({
           address: '',
           type: '',
@@ -53,9 +55,7 @@ class UpdateSpot extends React.Component {
         return;
       })
       .then(() => {
-        // update parent state updateSpot to null
         this.props.resetHomePage();
-        // jump back to manage spot home - in that case must elevate this func to homepage
       })
       .catch((err) => {
         console.log('error updating', err);
@@ -69,19 +69,40 @@ class UpdateSpot extends React.Component {
     }, () => console.log('edit spot state', this.state));
   }
 
+  setPhotoUrl(url) {
+    this.setState({
+        photo: url
+    });
+  }
+
+  sendFile() {
+    let formData = new FormData();
+    formData.append('spotImage', event.target.files[0]);
+    console.log('value', event.target.files[0]);
+    console.log('formData', formData.get('spotImage'));
+    // send to server, add to s3
+    axios.post(`http://localhost:3000/uploadImage`, formData)
+      .then((results) => {
+        // upon success response, get the photo url from s3 and add it to state
+        let url = results.data;
+        console.log('photo post results', url);
+        this.setPhotoUrl(url);
+      })
+      .catch((err) => {
+        console.log('photo error upload');
+      })
+  }
+
 
   render() {
 
     return (
       <div className='add-spot-home'>
 
-       {/* make into box show photo*/}
-
        <div className='add-spot-form'>
-          <div className='add-spot-photo'>
-            {/* <label>Add Photo</label>
-            <input type="text" id='photo' className='add-spot-input' onChange={this.handleChange}></input> */}
-            <div>Edit Photo</div>
+          <div style={{backgroundImage: `url("${this.state.photo}")`, backgroundSize: 'cover'}}className='add-spot-photo'>
+            <label for='file' style={{color: 'white'}} className='photo-upload'>Edit Photo</label>
+            <input type="file" id='file' className='photo-input' accept='image/png, image/jpeg' onChange={this.sendFile}></input>
           </div>
 
           {/* address maybe should be static */}
@@ -89,7 +110,7 @@ class UpdateSpot extends React.Component {
           <input type="text" id="address" value={this.state.address} className='txtBoxInput' onChange={this.handleChange} disabled></input>
           <label>Type</label>
           {/* make select default value match this.props.type initially */}
-          <select className='txtBoxInput add-spot-select' id='type' onChange={this.handleChange}>
+          <select value={this.state.type} className='txtBoxInput add-spot-select' id='type' onChange={this.handleChange}>
             <option value='driveway'>Driveway</option>
             <option value='garage'>Garage</option>
             <option value='carport'>Carport</option>

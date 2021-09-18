@@ -72,6 +72,7 @@ class App extends React.Component {
               <Mybookings />
             </Route> */}
 
+
             {/* <Route path="/xxx">
               <ComponentXXX />
             </Route> */}
@@ -82,6 +83,7 @@ class App extends React.Component {
           </Switch>
         </div>
       </Router>
+
     )
   };
 

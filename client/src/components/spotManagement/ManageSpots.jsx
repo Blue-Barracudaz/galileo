@@ -11,9 +11,6 @@ class ManageSpots extends React.Component {
   constructor(props) {
     super(props);
 
-    // console.log(localStorage.getItem('username'));
-    // console.log(localStorage.getItem('user_id'));
-
     this.state = {
       userId: localStorage.getItem('user_id') || null,
       spots: [],
@@ -33,7 +30,6 @@ class ManageSpots extends React.Component {
   }
 
   getAllHostSpots(id) {
-    // use user/host id from props for search..
     // get all spots from server for current user/host
     axios.get(`http://localhost:3000/my-spots?id=${id}`)
       .then((results) => {
@@ -50,7 +46,7 @@ class ManageSpots extends React.Component {
     this.setState({
       updateSpot: true,
       currentSpotId: id
-    });
+    }, () => console.log(this.state));
   }
 
   handleAddSpotClick(e) {
@@ -94,8 +90,6 @@ class ManageSpots extends React.Component {
     );
 
   }
-
 }
-
 
 export default ManageSpots;
