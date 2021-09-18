@@ -19,7 +19,7 @@ export default function Picker({ label, options, initialValue, onChangeCB = () =
           backgroundColor: 'white',
           borderColor: "#CDC4F2",
           borderWidth: '3px',
-          borderRadius: '4px'
+          borderRadius: '8px',
         }}>
         {options.map((option, index) => <option key={index} value={option}>{option}</option>)}
       </select>

@@ -3,7 +3,7 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  /* max-width: 600px; */
   align-items: flex-start;
 }
 
@@ -21,4 +21,9 @@
   border-radius: 8px;
   box-sizing: border-box;
   font-size: medium;
+}
+
+label {
+  font-family: Helvetica, sans-serif;
+  color: #707070;
 }

@@ -4,7 +4,7 @@ import Geocode from "react-geocode";
 
 const containerStyle = {
   width: '100%',
-  height: '80%'
+  height: '70%'
 };
 
 class MapContainer extends React.Component {

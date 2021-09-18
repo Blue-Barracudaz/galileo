@@ -1,0 +1,56 @@
+#search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30%;
+}
+
+#search-options-container {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+#reservation-options-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-label {
+  font-family: Helvetica, sans-serif;
+  color: #707070;
+}
+
+.reservation-options-element {
+  display: inline-block;
+}
+
+.react-datepicker__input-container input {
+  border: 3px solid #cdc4f2;
+  border-radius: 8px;
+  box-sizing: border-box;
+  height: 75px;
+  width: 175px;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.Picker label {
+  display: block;
+}
+
+select {
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+  height: 75px;
+  width: 175px;
+}
+
+#search-button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
