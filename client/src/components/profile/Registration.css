@@ -38,6 +38,28 @@
   padding-left: 1vh;
 }
 
+
+
+
+
+.LogOut {
+  padding: 0.5vh 0;
+  height: 5%;
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+  font-size: 2vh;
+  /* align-items: right; */
+}
+
+.logOutWord {
+  padding-top: 1vh;
+  padding-right: 1vh;
+}
+
+
+
+
 .updateContainer,
 .registrationContainer {
   padding-top: 10vh;

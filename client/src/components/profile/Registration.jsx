@@ -10,7 +10,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+
 } from "react-router-dom";
 
 class Registration extends React.Component {
@@ -87,6 +88,20 @@ class Registration extends React.Component {
       )
     }
   }
+  showLogout(){
+    if (this.props.btn === 'Save Information') {
+      return (
+        <div className="LogOut" onClick={() => {
+          localStorage.removeItem('username');
+          localStorage.removeItem('user_id');
+        }}>
+          {/* <div className="backBtn">{'\u1438'} </div> */}
+          {/* <div className="backWord"> Back to Login</div> */}
+          <div className="logOutWord"> <Link to="/">Log Out</Link></div>
+        </div>
+      )
+    }
+  }
 
   render() {
     // console.log(this.props)
@@ -109,6 +124,7 @@ class Registration extends React.Component {
 
     return (
       <div>
+          { this.showLogout()}
         <div className="registration">
           { this.showBacktoLogin() }
           <form onSubmit = {this.submit.bind(this)} className={className}>
