@@ -1,4 +1,12 @@
-const model = require('../../models/manageSpots.js')
+const model = require('../../models/manageSpots.js');
+const fs = require('fs');
+const AWS = require('aws-sdk');
+const multiparty = require('multiparty');
+
+const s3 = new AWS.S3({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+});
 
 const getMySpots = (req, res) => {
  // req.query.id = hostid
@@ -52,9 +60,38 @@ const updateSpotDetails = (req, res) => {
 
 }
 
+const uploadImage = (req, res) => {
+  // upload to s3
+  const form = new multiparty.Form();
+
+  form.on('part', function(part) {
+    const params = {
+      Bucket: 'galileo-boc',
+      Key: `${Date.now()}`,
+      Body: part,
+      ContentType:'image/jpeg'
+    };
+
+    s3.upload(params, (err, data) => {
+      if (err) {
+        console.log('error adding img to s3', err);
+        res.sendStatus(500)
+      } else {
+
+        console.log('success adding image', data)
+        // get url
+        res.status(201);
+        res.send(data.Location);
+      }
+    })
+  });
+  form.parse(req);
+}
+
 module.exports = {
   getMySpots,
   addNewSpot,
   getSpotDetails,
-  updateSpotDetails
+  updateSpotDetails,
+  uploadImage
 }

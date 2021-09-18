@@ -12,14 +12,17 @@ class AddSpot extends React.Component {
 
     this.state = {
       address: '',
-      type: '',
+      type: 'driveway',
       price: '',
       photo: '',
-      hostId: this.props.id
+      hostId: this.props.id,
+      file: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleConfirmClick = this.handleConfirmClick.bind(this);
+    this.setPhotoUrl = this.setPhotoUrl.bind(this);
+    this.sendFile = this.sendFile.bind(this);
   }
 
   handleConfirmClick() {
@@ -36,10 +39,9 @@ class AddSpot extends React.Component {
     })
     .then( async () => {
       console.log('success adding');
-      // maybe not necessary
       await this.setState({
         address: '',
-        type: '',
+        type: 'driveway',
         price: '',
         photo: '',
       });
@@ -51,8 +53,6 @@ class AddSpot extends React.Component {
     .catch((err) => {
       console.log('error adding', err);
     })
-
-    // jump back to manage spot home - in that case must elevate this func to homepage
   }
 
   handleChange() {
@@ -61,18 +61,51 @@ class AddSpot extends React.Component {
     }, () => console.log('add spot state', this.state));
   }
 
+  setPhotoUrl(url) {
+    this.setState({
+        photo: url
+    });
+  }
+
+  sendFile() {
+    let formData = new FormData();
+    formData.append('spotImage', event.target.files[0]);
+    console.log('value', event.target.files[0]);
+    console.log('formData', formData.get('spotImage'));
+    // send to server, add to s3
+    axios.post(`http://localhost:3000/uploadImage`, formData)
+      .then((results) => {
+        // upon success response, get the photo url from s3 and add it to state
+        let url = results.data;
+        console.log('photo post results', url);
+        this.setPhotoUrl(url);
+      })
+      .catch((err) => {
+        console.log('photo error upload');
+      })
+  }
 
   render() {
+
+    let photoDisplay;
+    if (this.state.photo.length) {
+      photoDisplay =
+      <div className='add-spot-photo'>
+        <img className='add-spot-image' src={this.state.photo}></img>
+      </div>
+    } else {
+      photoDisplay =
+       <div className='add-spot-photo'>
+        <label for='file' className='photo-upload'>Add Photo</label>
+        <input type="file" id='file' className='photo-input' accept='image/png, image/jpeg' onChange={this.sendFile}></input>
+       </div>
+    }
 
     return (
       <div className='add-spot-home'>
 
        <div className='add-spot-form'>
-          <div className='add-spot-photo'>
-            {/* <label>Add Photo</label>
-            <input type="text" id='photo' className='add-spot-input' onChange={this.handleChange}></input> */}
-            <div>Add Photo</div>
-          </div>
+          {photoDisplay}
           <label>Address</label>
           <input type="text" id="address" className='txtBoxInput' onChange={this.handleChange}></input>
           <label>Type</label>

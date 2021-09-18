@@ -16,10 +16,12 @@ class MapView extends React.Component {
         lat: 37.7749,
         lng: -122.4194
       },
-      reservationStartTime: null, // to be passed to modal view
-      reservationEndTime: null, // to be passed to modal view
-      reservationStartDate: null, // to be passed to modal view
-      reservationEndDate: null, // to be passed to modal view
+      UNIXstart: null, //  passed to modal view
+      UNIXend: null, //  passed to modal view
+      reservationStartTime: null, //  passed to modal view
+      reservationEndTime: null, //  passed to modal view
+      reservationStartDate: null, //  passed to modal view
+      reservationEndDate: null, //  passed to modal view
       spots: [], // passed to map component and rendered
       selectedSpot: '', // passed to modal
       showBottomModal: false,
@@ -53,7 +55,9 @@ class MapView extends React.Component {
           reservationStartTime: startTime,
           reservationEndTime: endTime,
           reservationStartDate: startDate,
-          reservationEndDate: endDate
+          reservationEndDate: endDate,
+          UNIXstart: UNIXstart,
+          UNIXend: UNIXend
         }, () => console.log('map component state after get request: ', this.state));
       })
       .catch((err) => {
@@ -108,9 +112,17 @@ class MapView extends React.Component {
           isModalOpen={this.state.showBottomModal}
           // modalHeaderContent={<div>{this.state.spots.length === 1 ? '1 nearby spot' : `${this.state.spots.length} nearby spots`}</div>}
           modalContent={<ModalContent
+            handleBookNow={this.props.handleBookNow}
             address={this.state.selectedSpot.address}
             price={this.state.selectedSpot.price}
             photo={this.state.selectedSpot.photo_url}
+            spot_id={this.state.selectedSpot.spot_id}
+            reservationStartTime={this.state.reservationStartTime}
+            reservationEndTime={this.state.reservationEndTime}
+            reservationStartDate={this.state.reservationStartDate}
+            reservationEndDate={this.state.reservationEndDate}
+            UNIXstart={this.state.UNIXstart}
+            UNIXend={this.state.UNIXend}
           />}
           onModalClose={this.closeBottomModal}
         />

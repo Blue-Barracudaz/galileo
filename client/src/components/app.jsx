@@ -22,7 +22,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       locations: [],
+      reservation: {}
     };
+  }
+
+  handleBookNow = (reservation) => {
+    this.setState({
+      reservation: reservation
+    }, () => console.log('app-level reservation: ', this.state.reservation));
   }
 
   onIconClick = () => {
@@ -54,7 +61,7 @@ class App extends React.Component {
             {()=>(localStorage.getItem('user_id'))?<Profile type={'update'} />:<Redirect to='/'/>}
             </Route>
             <Route path="/rent">
-              {()=>(localStorage.getItem('user_id'))?<MapView />:<Redirect to='/'/>}
+              {()=>(localStorage.getItem('user_id'))?<MapView handleBookNow={this.handleBookNow}/>:<Redirect to='/'/>}
             </Route>
             <Route path="/host">
             {()=>(localStorage.getItem('user_id'))? <ManageSpots  />:<Redirect to='/'/>}
@@ -62,6 +69,7 @@ class App extends React.Component {
             <Route path="/bookings">
               {()=>(localStorage.getItem('user_id'))? <MyBookings  />:<Redirect to='/'/>}
             </Route>
+
 
             {/* <Route path="/xxx">
               {()=>(localStorage.getItem('user_id'))? <ComponentXXX  />:<Redirect to='/'/>}
@@ -73,6 +81,7 @@ class App extends React.Component {
           </Switch>
         </div>
       </Router>
+
     )
   };
 
