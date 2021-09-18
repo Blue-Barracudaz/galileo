@@ -3,44 +3,61 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 700px;
   align-items: flex-start;
+  font-size: 1.6vh;
+  padding-bottom: 5vh;
 }
 
+.noBacktoLogin,
 .backtoLogin {
-  padding: 10px 0;
+  padding: 0.5vh 0;
+  height: 5%;
   display: flex;
   justify-content: space-around;
   cursor: pointer;
+  font-size: 2vh;
+}
+
+.noBacktoLogin {
+  padding: 5%+0.5vh 0;
 }
 
 .backBtn {
+  padding-top: 0.25vh;
+  padding-left: 0.5vh;
   color: #cdc4f2;
-  font-size: xx-large;
+  font-size: 2.5vh;
   font-weight: bolder;
   justify-content: space-around;
   align-items: center;
 }
 
 .backWord {
-  padding-top: 15px;
-  padding-left: 10px;
+  padding-top: 1vh;
+  padding-left: 1vh;
 }
 
+.updateContainer,
 .registrationContainer {
-  margin: 70px 0 60px 0;
+  padding-top: 10vh;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
+  align-self: center;
+}
+
+.updateContainer {
+  padding-top: 15.5vh;
 }
 
 .registrationInput {
   padding: 22px 20px;
-  margin: 5px 0 20px 0;
+  margin: 0 0 5vh 0;
   border: 3px solid #cdc4f2;
   border-radius: 8px;
   box-sizing: border-box;
-  font-size: medium;
+  font-size: 1.6vh;
 }
 
 .registrationBtn {
@@ -49,11 +66,11 @@
   margin: auto;
   border: none;
   cursor: pointer;
-  width: 60%;
-  height: 80px;
+  width: 70%;
+  height: 100px;
   border-radius: 15px;
-  font-size: x-large;
-  font-weight: 800;
+  font-size: 2vh;
+  font-weight: bold;
 }
 
 button:hover {
