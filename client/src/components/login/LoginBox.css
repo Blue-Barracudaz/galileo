@@ -3,7 +3,7 @@
   padding-top: 5vh;
   height: 50vh;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   align-items: center;
 }
 
@@ -14,23 +14,23 @@
 }
 
 .login-input {
-  width: 60%;
+  width: 70%;
   margin-bottom: 3vh;
   padding: 20px;
   border-radius: 8px;
   border: none;
-  font-size: medium;
+  font-size: 1.8vh;
 }
 
 .login-Btn {
-  width: 45%;
-  margin-top: 3vh;
+  width: 50%;
+  margin-top: 6vh;
   border-radius: 15px;
   border: none;
   color: #a694ec;
   padding: 20px;
   font-weight: bold;
-  font-size: large;
+  font-size: 2vh;
 }
 
 .login-Btn,
@@ -39,9 +39,14 @@
 }
 
 .to-register {
-  font-size: small;
-  opacity: 0.5;
+  margin-top: 3vh;
+  font-size: 1.6vh;
   text-decoration: underline;
+  opacity: 0.5;
+}
+
+.login-Btn:hover {
+  background-color: #ddd9f0;
 }
 
 .to-register:hover {
@@ -49,10 +54,10 @@
 }
 
 ::placeholder {
-  /* color: #cdc4f0; */
   opacity: 0.4;
 }
 
 .login-msg {
   color: white;
+  font-size: 2vh;
 }
