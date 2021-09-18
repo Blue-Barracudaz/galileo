@@ -42,8 +42,8 @@ const convertToUNIXTime = (time, date) => {
   // date.setMilliseconds(0);
   // console.log('result after update to the existing date object: ', date.getTime());
   console.log('human readable reservation time: ', new Date(year, month, day, hour));
-  console.log('UNIX time of reservation: ', new Date(year, month, day, hour).getTime());
-  return new Date(year, month, day, hour).getTime();
+  console.log('UNIX time of reservation: ', new Date(year, month, day, hour).getTime() / 1000);
+  return new Date(year, month, day, hour).getTime() / 1000; // remove milliseconds
 };
 
 export { generateTimes, convertToUNIXTime };
