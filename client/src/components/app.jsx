@@ -10,12 +10,10 @@ import TabSelector from './shared/tabSelector/TabSelector.jsx'
 import MyBookings from './myBookings/myBookings.jsx';
 
 import {
-  // BrowserRouter as Router,
   HashRouter as Router,
   Switch,
   Route,
   Link,
-  // Redirect
 } from "react-router-dom";
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
@@ -61,12 +59,12 @@ class App extends React.Component {
             <Route path="/host">
             {()=>(localStorage.getItem('user_id'))? <ManageSpots  />:<Redirect to='/'/>}
             </Route>
-            {/* <Route path="/bookings">
-              <Mybookings />
-            </Route> */}
+            <Route path="/bookings">
+              {()=>(localStorage.getItem('user_id'))? <MyBookings  />:<Redirect to='/'/>}
+            </Route>
 
             {/* <Route path="/xxx">
-              <ComponentXXX />
+              {()=>(localStorage.getItem('user_id'))? <ComponentXXX  />:<Redirect to='/'/>}
             </Route> */}
 
             <Route path="/">

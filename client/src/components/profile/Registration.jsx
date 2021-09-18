@@ -7,11 +7,8 @@ import $ from 'jquery';
 import TabSelector from '../shared/tabSelector/TabSelector.jsx'
 
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
+  withRouter,
   Link,
-
 } from "react-router-dom";
 
 class Registration extends React.Component {
@@ -84,7 +81,7 @@ class Registration extends React.Component {
   showSideBar(){
     if (this.props.btn === 'Save Information') {
       return (
-        <TabSelector />
+        <TabSelector view={2}/>
       )
     }
   }
@@ -151,4 +148,4 @@ class Registration extends React.Component {
 
 }
 
-export default Registration;
+export default withRouter(Registration);
