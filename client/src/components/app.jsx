@@ -17,6 +17,7 @@ import {
   Link,
   // Redirect
 } from "react-router-dom";
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 class App extends React.Component {
   constructor(props) {
@@ -59,13 +60,13 @@ class App extends React.Component {
               <Profile type={'registration'} />
             </Route>
             <Route path="/profile">
-              <Profile type={'update'} />
+            {()=>(localStorage.getItem('user_id'))?<Profile type={'update'} />:<Redirect to='/'/>}
             </Route>
             <Route path="/rent">
-              <MapView handleBookNow={this.handleBookNow}/>
+              {()=>(localStorage.getItem('user_id'))?<MapView />:<Redirect to='/'/>}
             </Route>
             <Route path="/host">
-              <ManageSpots  />
+            {()=>(localStorage.getItem('user_id'))? <ManageSpots  />:<Redirect to='/'/>}
             </Route>
             {/* <Route path="/bookings">
               <Mybookings />
