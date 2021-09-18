@@ -1,7 +1,9 @@
 const models = require('../../models/index.js');
 
 const getMyBookingsRoute = (req, res) => {
-  return models.getMyBookings()
+  let id = Number(req.params.user_id);
+
+  return models.getMyBookings(id)
     .then((bookings) => {
       console.log('CONTROLLER: MY BOOKINGS', bookings)
       res.status(200).send(bookings)
