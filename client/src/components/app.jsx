@@ -58,6 +58,14 @@ class App extends React.Component {
             <Route path="/host">
               <ManageSpots  />
             </Route>
+            <Route path="/bookings">
+              <Mybookings />
+            </Route>
+
+            {/* <Route path="/xxx">
+              <ComponentXXX />
+            </Route> */}
+
             <Route path="/">
               <Login />
             </Route>
