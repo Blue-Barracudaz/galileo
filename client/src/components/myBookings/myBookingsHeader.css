@@ -10,6 +10,7 @@
   color: #cdc4f2;
   font-size: xx-large;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 .my-bookings-header .heading {

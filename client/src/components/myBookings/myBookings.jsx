@@ -13,11 +13,11 @@ class MyBookings extends React.Component {
   }
 
   onClick = () => {
-    console.log('CLICKED')
+    console.log('CLICKED DELETED')
   }
 
   componentDidMount () {
-    fetch(`/my-bookings/2`)
+    fetch(`/my-bookings/${this.props.userId}`)
       .then((res) => res.json())
       .then((bookings) => {
         console.log('MY BOOKINGS', bookings);

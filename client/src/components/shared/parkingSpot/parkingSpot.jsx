@@ -13,7 +13,7 @@ let ParkingSpot = ({ image, rate, address, date, time, total, onIconClick, Actio
         <p className='rate'> {date} </p>
         <p className='rate'> {time} </p>
         <p className='rate'> {total} </p>
-        <p className='rate'>{rate}</p>
+        <p className='rate'>{rate} </p>
       </div>
 
       <div className='spot-arrow'>

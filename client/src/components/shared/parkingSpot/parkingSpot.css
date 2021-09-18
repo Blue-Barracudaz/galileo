@@ -28,6 +28,7 @@
   justify-self: start;
   align-self: center;
   margin: 10px;
+  cursor: pointer;
   /* border: 1px solid blue; */
 }
 
