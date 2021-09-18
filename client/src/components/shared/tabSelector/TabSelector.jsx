@@ -1,5 +1,9 @@
 import React from 'react';
 import './TabSelector.css';
+import {
+withRouter,
+  Link,
+} from "react-router-dom";
 
 
 
@@ -17,7 +21,6 @@ class Icon extends React.Component {
     return (
       <img className="icon"
         id={this.props.id}
-        onClick={(e) => { this.props.onClick(e); }}
         src={this.props.isActive ? `${this.props.activeState}` : `${this.props.inactiveState}`}></img>
     );
   }
@@ -26,32 +29,25 @@ class Icon extends React.Component {
 }
 
 // Hardcoded images is obv not best practice, but we have a deadline
-export default class TabSelector extends React.Component {
+class TabSelector extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      selectedItem: 0
-    }
-  }
-
-  onClick(e) {
-    this.setState({ selectedItem: e.target.id });
-    if (this.props.onChange) {
-      this.props.onChange(e.target.id);
-    }
   }
 
   render() {
     return (
       <div className="tab-selector">
         <div className="tab-selector-body">
-          <Icon id={0} onClick={(e) => { this.onClick(e) }} isActive={this.state.selectedItem == 0} activeState={'./rentActive.png'} inactiveState={'./rentInactive.png'} />
-          <Icon id={1} onClick={(e) => { this.onClick(e) }} isActive={this.state.selectedItem == 1} activeState={'./spotsActive.png'} inactiveState={'./spotsInactive.png'} />
-          <Icon id={2} onClick={(e) => { this.onClick(e) }} isActive={this.state.selectedItem == 2} activeState={'./profileActive.png'} inactiveState={'./profileInactive.png'} />
+          <Link className="icon" to="/rent"><Icon id={0} isActive={this.props.view == 0} activeState={'./rentActive.png'} inactiveState={'./rentInactive.png'} /></Link>
+          <Link className="icon" to="/host"><Icon id={1} isActive={this.props.view == 1} activeState={'./spotsActive.png'} inactiveState={'./spotsInactive.png'} /></Link>
+          <Link className="icon" to="/profile"><Icon id={2} isActive={this.props.view == 2} activeState={'./profileActive.png'} inactiveState={'./profileInactive.png'} /></Link>
+          {/* <Link className="icon" to="/bookings"></Link><Icon id={3} isActive={this.props.view == 3} activeState={'./profileActive.png'} inactiveState={'./profileInactive.png'} /> */}
         </div>
       </div>
 
     );
   }
 }
+
+export default withRouter(TabSelector);

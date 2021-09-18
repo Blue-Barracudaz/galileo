@@ -3,6 +3,10 @@ import Map from './map.jsx';
 import Search from './Search.jsx';
 import BottomModal from '../shared/bottomModal/BottomModal.jsx';
 import ModalContent from './ModalContent.jsx';
+import TabSelector from '../shared/tabSelector/TabSelector.jsx'
+import {
+  withRouter
+} from "react-router-dom";
 
 class MapView extends React.Component {
   constructor(props) {
@@ -91,6 +95,7 @@ class MapView extends React.Component {
   render() {
     return (
       <div className="map-view" style={{ width: "100vw", height: "100vh" }}>
+        <TabSelector view={0}/>
         <Map
           center={this.state.center}
           spots={this.state.spots}
@@ -126,4 +131,4 @@ class MapView extends React.Component {
   }
 };
 
-export default MapView;
+export default withRouter(MapView);

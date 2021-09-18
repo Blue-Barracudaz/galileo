@@ -29,13 +29,11 @@ const Profile = ({ type }) => {
       }
     })
     console.log('Registration! AddUser!');
-    // axios.post, db.addUser
   }
 
   getUser = () => {
     console.log('Update! GetUser!');
     let user_id = localStorage.getItem('user_id') || 1;
-    // axios.get, db.getUser
     $.ajax({
       url: `http://localhost:3000/my-profile/${user_id}`,
       type: 'GET',
@@ -72,7 +70,6 @@ const Profile = ({ type }) => {
       }
     })
     console.log('Update! UpdateUser!');
-    // axios.put, db.updateUser
   }
 
   if (type === 'registration') {
@@ -88,7 +85,6 @@ const Profile = ({ type }) => {
   }
 
   return (
-    // <Registration btn={btn} addUser={addUser} getUser={getUser} updateUser={updateUser}/>
     <Registration btn={btn} handleUser={handleUser} updateUser={updateUser} />
   );
 }

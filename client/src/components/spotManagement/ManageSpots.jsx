@@ -6,6 +6,8 @@ import './spotManagement.css';
 import PageHeader from '../shared/pageHeader/pageHeader.jsx';
 import UpdateSpot from './UpdateSpot.jsx';
 import AddSpot from './AddSpot.jsx';
+import {withRouter} from "react-router-dom";
+import TabSelector from '../shared/tabSelector/TabSelector.jsx';
 
 class ManageSpots extends React.Component {
   constructor(props) {
@@ -85,6 +87,7 @@ class ManageSpots extends React.Component {
 
     return (
       <div>
+        <TabSelector view={1}/>
         {mainContent}
       </div>
     );
@@ -92,4 +95,5 @@ class ManageSpots extends React.Component {
   }
 }
 
-export default ManageSpots;
+
+export default withRouter(ManageSpots);

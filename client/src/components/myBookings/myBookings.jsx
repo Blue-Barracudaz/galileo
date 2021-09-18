@@ -3,6 +3,7 @@ import ParkingSpot from '../shared/parkingSpot/parkingSpot.jsx';
 import Trash from '../shared/icons/trash.jsx';
 import MyBookingsHeader from './myBookingsHeader.jsx';
 import './myBookings.css';
+import TabSelector from '../shared/tabSelector/TabSelector.jsx';
 
 class MyBookings extends React.Component {
   constructor(props) {
@@ -56,6 +57,7 @@ class MyBookings extends React.Component {
         {
           this.state.bookings.map((booking, idx) => <ParkingSpot key={idx} image={booking.photo_url} address={booking.address} date={booking.date} time={booking.time} total={booking.total} onIconClick={this.onClick}  ActionIcon={Trash}/>)
         }
+        <TabSelector view={1} />
       </div>
     )
   }
