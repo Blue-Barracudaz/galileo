@@ -46,14 +46,14 @@ export default (props) => {
       </Sheet > */}
 
       {/* Submodal */}
-      <Sheet disableDrag={true} isOpen={props.isModalOpen} onClose={() => {}} snapPoints={[0.28]}>
+      <Sheet disableDrag={true} isOpen={props.isModalOpen} onClose={() => {}} snapPoints={[0.3]}>
         <Sheet.Container>
           <Sheet.Header>
             <div style={{ marginLeft: '95%', width: "100%" }}>
               <h1 onClick={() => props.onModalClose()}>{'\u2715'}</h1>
             </div>
           </Sheet.Header>
-          <Sheet.Header>{props.modalHeaderContent}</Sheet.Header>
+          {/* <Sheet.Header>{props.modalHeaderContent}</Sheet.Header> */}
           <Sheet.Content>
             {props.modalContent || <h1>No Content Present</h1>}
           </Sheet.Content>
