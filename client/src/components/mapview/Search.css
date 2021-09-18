@@ -22,6 +22,11 @@
   justify-content: space-between;
 }
 
+.txtBoxInput {
+  background-image: url(search_icon.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .search-label {
   font-family: Helvetica, sans-serif;
   color: #707070;
