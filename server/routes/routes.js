@@ -17,6 +17,7 @@ router.get('/my-spots', Spot.getMySpots);
 router.get('/spot-details', Spot.getSpotDetails);
 router.put('/update-spot-details', Spot.updateSpotDetails);
 router.post('/add-spot', Spot.addNewSpot);
+router.get('/my-bookings', myBookingsRoute);
 router.post('/booking', booking.postBooking);
 
 module.exports = router;

@@ -16,26 +16,12 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {
-    fetch(`/spots`)
-      .then((resp) => resp.json())
-      .then((spots) => {
-        console.log('SPOTS', spots);
-        this.setState({ locations: spots })
-      })
-      .catch((err) => {
-        console.log('ERROR GETTING SPOTS', err);
-      })
-  }
-
   onIconClick = () => {
     console.log('HELLO')
   }
 
-
   render() {
     return (
-
       <div>
         <TabSelector></TabSelector>
         <PageHeader title={"TEMP TITLE"} isVisible={true} />
