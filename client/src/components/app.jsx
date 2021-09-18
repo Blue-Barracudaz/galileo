@@ -23,7 +23,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       locations: [],
+      reservation: {}
     };
+  }
+
+  handleBookNow = (reservation) => {
+    this.setState({
+      reservation: reservation
+    }, () => console.log('app-level reservation: ', this.state.reservation));
   }
 
   onIconClick = () => {
@@ -55,7 +62,7 @@ class App extends React.Component {
               <Profile type={'update'} />
             </Route>
             <Route path="/rent">
-              <MapView />
+              <MapView handleBookNow={this.handleBookNow}/>
             </Route>
             <Route path="/host">
               <ManageSpots  />
