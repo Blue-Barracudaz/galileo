@@ -70,12 +70,13 @@ class Registration extends React.Component {
       )
     }
     let username= (this.props.btn === 'Finish Registration')?this.state.username:localStorage.getItem('username');
+    let method = (this.props.btn === 'Finish Registration')?this.handleChange.bind(this):()=>{};
     return (
       <div className="registration">
         {this.showBacktoLogin()}
         <form onSubmit={this.submit.bind(this)} className="registrationContainer">
           <label>Username</label>
-         <input required type="text" id="username" className="registrationInput" value={username} onChange={this.handleChange.bind(this)} ></input>
+         <input required type="text" id="username" className="registrationInput" value={username} onChange={method} ></input>
           <label>Password</label>
           <input required type="text" id="password" className="registrationInput" value={this.state.password} onChange={this.handleChange.bind(this)}></input>
           <label>Email</label>
