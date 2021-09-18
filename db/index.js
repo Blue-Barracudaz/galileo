@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'development') {
   host = 'localhost';
 } else if (process.env.NODE_ENV === 'test') {
   database = 'galileo_test';
-  user = 'haoshenli';
+  user = 'postgres';
   password = process.env.PG_DB_PASS_TEST;
   host = 'localhost';
 }
