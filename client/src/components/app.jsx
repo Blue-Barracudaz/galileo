@@ -10,19 +10,28 @@ import TabSelector from './shared/tabSelector/TabSelector.jsx'
 import MyBookings from './myBookings/myBookings.jsx';
 
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link,
   // Redirect
 } from "react-router-dom";
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       locations: [],
+      reservation: {}
     };
+  }
+
+  handleBookNow = (reservation) => {
+    this.setState({
+      reservation: reservation
+    }, () => console.log('app-level reservation: ', this.state.reservation));
   }
 
   onIconClick = () => {
@@ -51,13 +60,13 @@ class App extends React.Component {
               <Profile type={'registration'} />
             </Route>
             <Route path="/profile">
-              <Profile type={'update'} />
+            {()=>(localStorage.getItem('user_id'))?<Profile type={'update'} />:<Redirect to='/'/>}
             </Route>
             <Route path="/rent">
-              <MapView />
+              {()=>(localStorage.getItem('user_id'))?<MapView handleBookNow={this.handleBookNow}/>:<Redirect to='/'/>}
             </Route>
             <Route path="/host">
-              <ManageSpots  />
+            {()=>(localStorage.getItem('user_id'))? <ManageSpots  />:<Redirect to='/'/>}
             </Route>
             {/* <Route path="/bookings">
               <Mybookings />
