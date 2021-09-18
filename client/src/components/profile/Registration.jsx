@@ -4,6 +4,7 @@ import style from './Registration.css'
 import Button from '../shared/button/button.jsx';
 import Login from '../login/Login.jsx';
 import $ from 'jquery';
+import TabSelector from '../shared/tabSelector/TabSelector.jsx'
 
 class Registration extends React.Component {
   constructor(props) {
@@ -46,7 +47,7 @@ class Registration extends React.Component {
   }
 
   backtoLogin(){
-    console.log('backtoLogin');
+    // console.log('backtoLogin');
     this.setState({back:true})
   }
 
@@ -67,31 +68,54 @@ class Registration extends React.Component {
     }
   }
 
+  showSideBar(){
+    if (this.props.btn === 'Save Information') {
+      return (
+        <TabSelector />
+      )
+    }
+  }
+
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     if (this.state.back)
       {return (
         <Login />
       )}
 
+    let className, username, change;
+    if (this.props.btn === 'Save Information') {
+      className = 'updateContainer';
+      username = localStorage.getItem('username') || ' ';
+      change = () => console.log('username: ', username);
+      // console.log('username:', username)
+    } else {
+      className = 'registrationContainer';
+      username = this.state.username;
+      change = this.handleChange.bind(this);
+    }
+
     return (
-      <div className="registration">
-        { this.showBacktoLogin() }
-        <form onSubmit = {this.submit.bind(this)} className="registrationContainer">
+      <div>
+        <div className="registration">
+          { this.showBacktoLogin() }
+          <form onSubmit = {this.submit.bind(this)} className={className}>
 
-          <label>Username</label>
-          <input required type="text" id="username" className="registrationInput" value ={this.state.username} onChange={this.handleChange.bind(this)} ></input>
-          <label>Password</label>
-          <input required type="text" id="password" className="registrationInput" value ={this.state.password} onChange={this.handleChange.bind(this)}></input>
-          <label>Email</label>
-          <input required type="email" id="email" className="registrationInput" value ={this.state.email} onChange={this.handleChange.bind(this)}></input>
-          <label>First Name</label>
-          <input required type="text" id="first_name" className="registrationInput" value ={this.state.first_name} onChange={this.handleChange.bind(this)}></input>
-          <label>Last Name</label>
-          <input required type="text" id="last_name" className="registrationInput" value ={this.state.last_name} onChange={this.handleChange.bind(this)} ></input>
-          <input type="submit" className="registrationBtn" value={this.props.btn}/>
+            <label>Username</label>
+            <input required type="text" id="username" className="registrationInput" value ={username} onChange={change} ></input>
+            <label>Password</label>
+            <input required type="text" id="password" className="registrationInput" value ={this.state.password} onChange={this.handleChange.bind(this)}></input>
+            <label>Email</label>
+            <input required type="email" id="email" className="registrationInput" value ={this.state.email} onChange={this.handleChange.bind(this)}></input>
+            <label>First Name</label>
+            <input required type="text" id="first_name" className="registrationInput" value ={this.state.first_name} onChange={this.handleChange.bind(this)}></input>
+            <label>Last Name</label>
+            <input required type="text" id="last_name" className="registrationInput" value ={this.state.last_name} onChange={this.handleChange.bind(this)} ></input>
+            <input type="submit" className="registrationBtn" value={this.props.btn}/>
 
-        </form>
+          </form>
+        </div>
+        { this.showSideBar() }
       </div>
     )
   }

@@ -22,7 +22,6 @@ class Login extends React.Component {
 
   componentDidMount() {
     let username = localStorage.getItem('username');
-    // console.log('username: ', username)
     if (username) {
       this.setState({username: username});
     }
@@ -36,16 +35,13 @@ class Login extends React.Component {
 
   async login() {
     event.preventDefault();
-    // console.log("name", document.getElementById("username").value);
     const data = {
       username: this.state.username,
       password: this.state.password
     };
-    // console.log('state before login', this.state);
 
     axios.post('/login', data)
       .then(result => {
-        // console.log('login?', result.data);
         let newState;
         if (result.data === 'noExistUser') {
           newState = {
@@ -53,14 +49,12 @@ class Login extends React.Component {
             password: '',
             message: 'Not an existing user! Try again!'
           }
-        // } else if (result.data === 'successLogin') {
         } else if (result.data.user_id) {
           localStorage.setItem('username', this.state.username);
           localStorage.setItem('user_id', result.data.user_id);
           newState = {
             showLogin: false
           };
-        // } else if (result.data === 'failLogin'){
         } else {
           newState = {
             password: '',
@@ -68,8 +62,6 @@ class Login extends React.Component {
           };
         }
         this.setState(newState);
-        // this.setState(newState, ()=>console.log('login success? ', this.state));
-        // console.log('state after register', this.state);
       })
       .catch(err => {
         console.log('Login err: ', err);
@@ -77,17 +69,12 @@ class Login extends React.Component {
   }
 
   toRegister() {
-    // console.log('direct to register!');
     localStorage.removeItem('username');
     localStorage.removeItem('user_id');
     this.setState({showLogin: false, toRegister: true});
   }
 
   render() {
-
-    // return  (
-    //   <Route path="/login" component={Profile}/>
-    // )
 
     if (this.state.showLogin) {
       return (
@@ -103,11 +90,10 @@ class Login extends React.Component {
     } else if (this.state.toRegister) {
       return (
         <Profile type={'registration'} />
+        // <Profile type={'update'} />
         );
-        // <Route path="/login" component={Profile}/>
     } else {
       return (
-        // <div>Login success! Let's search parking spot!</div>
         <MapView />
       );
     }

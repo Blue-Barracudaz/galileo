@@ -23,14 +23,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TabSelector></TabSelector>
+        {/* <TabSelector></TabSelector> */}
         <PageHeader title={"TEMP TITLE"} isVisible={true} />
+        <Profile type={'update'} />
         <MapView />
         <ManageSpots />
-
-        <Profile type={'update'} />
-        <Profile type={'regristration'} />
-        <Login></Login>
+        <Login />
       </div>
     )
   };
