@@ -42,6 +42,46 @@ class Login extends React.Component {
     });
   }
 
+  // async login() {
+  //   event.preventDefault();
+  //   const data = {
+  //     username: this.state.username,
+  //     password: this.state.password
+  //   };
+
+  //   axios.post('/login', data)
+  //     .then(result => {
+  //       let newState;
+  //       if (result.data === 'noExistUser') {
+  //         newState = {
+  //           username: '',
+  //           password: '',
+  //           message: 'Not an existing user! Try again!'
+  //         }
+  //       } else if (result.data.user_id) {
+  //         localStorage.setItem('username', this.state.username);
+  //         localStorage.setItem('user_id', result.data.user_id);
+  //         // newState = {
+  //         //   showLogin: false
+  //         // };
+  //         // this.props.history.push('/rent');
+  //         // this.props.history.replace('/rent');
+  //         this.props.history.push('/profile');
+  //         // this.props.history.replace('/profile');
+  //         // this.props.history.push('/host');
+  //       } else {
+  //         newState = {
+  //           password: '',
+  //           message: 'Incorrect Password. Try again!'
+  //         };
+  //       }
+  //       this.setState(newState);
+  //     })
+  //     .catch(err => {
+  //       console.log('Login err: ', err);
+  //     })
+  // }
+
   async login() {
     event.preventDefault();
     const data = {
@@ -49,35 +89,37 @@ class Login extends React.Component {
       password: this.state.password
     };
 
-    axios.post('/login', data)
-      .then(result => {
-        let newState;
-        if (result.data === 'noExistUser') {
-          newState = {
-            username: '',
-            password: '',
-            message: 'Not an existing user! Try again!'
-          }
-        } else if (result.data.user_id) {
-          localStorage.setItem('username', this.state.username);
-          localStorage.setItem('user_id', result.data.user_id);
-          // newState = {
-          //   showLogin: false
-          // };
-          this.props.history.push('/rent');
-          // this.props.history.push('/profile');
-          // this.props.history.push('/host');
-        } else {
-          newState = {
-            password: '',
-            message: 'Incorrect Password. Try again!'
-          };
+    try {
+      let result = await axios.post('/login', data);
+      let newState;
+      if (result.data === 'noExistUser') {
+        newState = {
+          username: '',
+          password: '',
+          message: 'Not an existing user! Try again!'
         }
-        this.setState(newState);
-      })
-      .catch(err => {
-        console.log('Login err: ', err);
-      })
+      } else if (result.data.user_id) {
+        localStorage.setItem('username', this.state.username);
+        localStorage.setItem('user_id', result.data.user_id);
+        // newState = {
+        //   showLogin: false
+        // };
+        // this.props.history.replace('/rent');
+        this.props.history.push('/rent');
+        // this.props.history.push('/profile');
+        // this.props.history.push('/host');
+      } else {
+        newState = {
+          password: '',
+          message: 'Incorrect Password. Try again!'
+        };
+      }
+      this.setState(newState);
+
+    } catch (err) {
+    console.log('Login err: ', err);
+    // return err;
+    }
   }
 
   // toRegister() {
