@@ -1,14 +1,15 @@
 .my-bookings-header {
-  margin-left: 10px;
+  width: 100vw;
   display: grid;
-  grid-template-columns: 40px 460px;
+  grid-template-columns: 1fr 10fr;
   align-items: center;
   box-shadow: 0 1px 10px 0 #707070;
+  margin-bottom: 2vh;
 }
 
 .my-bookings-header .back {
   color: #cdc4f2;
-  font-size: xx-large;
+  font-size: 2.5vh;
   font-weight: bolder;
   cursor: pointer;
 }

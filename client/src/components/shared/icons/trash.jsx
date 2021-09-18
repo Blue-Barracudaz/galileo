@@ -8,7 +8,7 @@ const Trash = ({ size=60, color="#707070", onIconClick }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke={color}
-    strokeWidth="1"
+    strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
   >

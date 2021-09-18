@@ -12,12 +12,12 @@ let ParkingSpot = ({ image, rate, address, date, time, total, onIconClick, Actio
         <p>{address} </p>
         <p className='rate'> {date} </p>
         <p className='rate'> {time} </p>
-        <p className='rate'> {total} </p>
+        <p className='rate'> Total: ${total} </p>
         <p className='rate'>{rate} </p>
       </div>
 
       <div className='spot-arrow'>
-        <ActionIcon size={60} color={'#707070'} onIconClick={onIconClick}/>
+        <ActionIcon size={70} color={'#707070'} onIconClick={onIconClick}/>
       </div>
     </div>
   );

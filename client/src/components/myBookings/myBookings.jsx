@@ -52,7 +52,7 @@ class MyBookings extends React.Component {
   render () {
     return (
       <div className='my-bookings'>
-        <MyBookingsHeader heading={'ACTIVE BOOKINGS'}/>
+        <MyBookingsHeader heading={'Active Bookings'}/>
         {
           this.state.bookings.map((booking, idx) => <ParkingSpot key={idx} image={booking.photo_url} address={booking.address} date={booking.date} time={booking.time} total={booking.total} onIconClick={this.onClick}  ActionIcon={Trash}/>)
         }
