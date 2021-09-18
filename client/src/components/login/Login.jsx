@@ -4,7 +4,15 @@ import LoginBox from './LoginBox.jsx';
 import Profile from '../profile/Profile.jsx';
 import MapView from '../mapview/MapView.jsx';
 import 'regenerator-runtime/runtime';
-import { Router } from 'react-router';
+
+import {
+  // BrowserRouter as Router,
+  // Switch,
+  // Route,
+  // Link,
+  withRouter
+} from "react-router-dom";
+
 const axios = require('axios');
 
 class Login extends React.Component {
@@ -12,8 +20,8 @@ class Login extends React.Component {
     super(props);
 
     this.state = {
-      showLogin: true,
-      toRegister: false,
+      // showLogin: true,
+      // toRegister: false,
       username: '',
       password: '',
       message: ''
@@ -30,6 +38,7 @@ class Login extends React.Component {
   handleChange(){
     this.setState({
       [event.target.name]: event.target.value,
+      message: ''
     });
   }
 
@@ -52,9 +61,12 @@ class Login extends React.Component {
         } else if (result.data.user_id) {
           localStorage.setItem('username', this.state.username);
           localStorage.setItem('user_id', result.data.user_id);
-          newState = {
-            showLogin: false
-          };
+          // newState = {
+          //   showLogin: false
+          // };
+          this.props.history.push('/rent');
+          // this.props.history.push('/profile');
+          // this.props.history.push('/host');
         } else {
           newState = {
             password: '',
@@ -68,38 +80,56 @@ class Login extends React.Component {
       })
   }
 
-  toRegister() {
-    localStorage.removeItem('username');
-    localStorage.removeItem('user_id');
-    this.setState({showLogin: false, toRegister: true});
-  }
+  // toRegister() {
+  //   localStorage.removeItem('username');
+  //   localStorage.removeItem('user_id');
+  //   this.setState({showLogin: false, toRegister: true});
+  // }
+
+  // render() {
+
+  //   // return  (
+  //   //   <Route path="/login" component={Profile}/>
+  //   // )
+
+  //   if (this.state.showLogin) {
+  //     return (
+  //       <div id='background'>
+  //         <div id='login'>
+  //           <div id='name'>
+  //             GALILEO
+  //           </div>
+  //           <LoginBox login={this.login.bind(this)} register={this.toRegister.bind(this)} handleChange={this.handleChange.bind(this)} username={this.state.username} password={this.state.password} placeholder={this.state.placeholder} message={this.state.message} />
+  //         </div>
+  //       </div>
+  //     )
+  //   } else if (this.state.toRegister) {
+  //     return (
+  //       <Profile type={'registration'} />
+  //       // <Profile type={'update'} />
+  //       );
+  //   } else {
+  //     return (
+  //       <MapView />
+  //     );
+  //   }
+
+  // }
 
   render() {
-
-    if (this.state.showLogin) {
-      return (
-        <div id='background'>
-          <div id='login'>
-            <div id='name'>
-              GALILEO
-            </div>
-            <LoginBox login={this.login.bind(this)} register={this.toRegister.bind(this)} handleChange={this.handleChange.bind(this)} username={this.state.username} password={this.state.password} placeholder={this.state.placeholder} message={this.state.message} />
+    return (
+      <div id='background'>
+        <div id='login'>
+          <div id='name'>
+            GALILEO
           </div>
+          <LoginBox login={this.login.bind(this)} handleChange={this.handleChange.bind(this)} username={this.state.username} password={this.state.password} placeholder={this.state.placeholder} message={this.state.message} />
         </div>
-      )
-    } else if (this.state.toRegister) {
-      return (
-        <Profile type={'registration'} />
-        // <Profile type={'update'} />
-        );
-    } else {
-      return (
-        <MapView />
-      );
-    }
-
+      </div>
+    )
   }
 }
 
 
-export default Login;
+// export default Login;
+export default withRouter(Login);

@@ -1,16 +1,16 @@
-/* #background {
+#background {
   position: fixed;
   height: 100%;
   width: 100%;
   background-color: #CDC4F2;
   left: 0;
   top: 0;
-} */
+}
 
 /* FOR TESTING. SWITCH TO ABOVE BACKGROUN FOR REAL. */
-#background {
+/* #background {
   background-color: #CDC4F2;
-}
+} */
 /* FOR TESTING. SWITCH TO ABOVE BACKGROUN FOR REAL. */
 
 #login {

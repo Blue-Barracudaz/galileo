@@ -8,6 +8,14 @@ import BottomModal from './shared/bottomModal/BottomModal.jsx';
 import ManageSpots from './spotManagement/ManageSpots.jsx';
 import TabSelector from './shared/tabSelector/TabSelector.jsx'
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  // Redirect
+} from "react-router-dom";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -20,18 +28,45 @@ class App extends React.Component {
     console.log('HELLO')
   }
 
+  // render() {
+  //   return (
+  //     <div>
+  //       {/* <TabSelector></TabSelector> */}
+  //       <PageHeader title={"TEMP TITLE"} isVisible={true} />
+  //       <Profile type={'update'} />
+  //       <MapView />
+  //       <ManageSpots />
+  //       <Login />
+  //     </div>
+  //   )
+  // };
+
   render() {
     return (
-      <div>
-        {/* <TabSelector></TabSelector> */}
-        <PageHeader title={"TEMP TITLE"} isVisible={true} />
-        <Profile type={'update'} />
-        <MapView />
-        <ManageSpots />
-        <Login />
-      </div>
+      <Router>
+        <div>
+          <Switch>
+            <Route path="/registration">
+              <Profile type={'registration'} />
+            </Route>
+            <Route path="/profile">
+              <Profile type={'update'} />
+            </Route>
+            <Route path="/rent">
+              <MapView />
+            </Route>
+            <Route path="/host">
+              <ManageSpots  />
+            </Route>
+            <Route path="/">
+              <Login />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     )
   };
+
 }
 
 export default App;
