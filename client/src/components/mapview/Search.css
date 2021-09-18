@@ -28,6 +28,13 @@
   background-size: contain;
 } */
 
+.line {
+  background-color:#4C4C56;
+  opacity: .3;
+  height: 2px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .search-label {
   font-family: Helvetica, sans-serif;
   color: #707070;

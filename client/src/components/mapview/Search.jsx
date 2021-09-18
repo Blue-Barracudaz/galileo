@@ -74,12 +74,13 @@ class Search extends React.Component {
 
   render() {
     const times = generateTimes();
-    const spots = !this.props.searchMade ? 'ready for liftoff!' : this.props.spotsFound;
+    const spots = !this.props.searchMade ? 'ready for liftoff...' : this.props.spotsFound;
 
     return (
       <div id="search-container">
         <div id="search-result-count">{spots}</div>
         <div id="search-options-container">
+          <div className='line'></div>
           <TxtBox
             label={'Location'}
             type={'search'}
