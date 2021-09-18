@@ -104,7 +104,7 @@ class Login extends React.Component {
         // newState = {
         //   showLogin: false
         // };
-        this.props.history.replace('/rent');
+        // this.props.history.replace('/rent');
         this.props.history.push('/rent');
         // this.props.history.push('/profile');
         // this.props.history.push('/host');
