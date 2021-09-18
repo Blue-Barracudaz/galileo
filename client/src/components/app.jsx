@@ -7,6 +7,7 @@ import MapView from './mapview/MapView.jsx';
 import BottomModal from './shared/bottomModal/BottomModal.jsx';
 import ManageSpots from './spotManagement/ManageSpots.jsx';
 import TabSelector from './shared/tabSelector/TabSelector.jsx'
+import MyBookings from './myBookings/myBookings.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -35,16 +36,15 @@ class App extends React.Component {
 
   render() {
     return (
-
       <div>
-        <TabSelector></TabSelector>
-        <PageHeader title={"TEMP TITLE"} isVisible={true} />
+        {/* <TabSelector></TabSelector> */}
+        {/* <PageHeader title={"TEMP TITLE"} isVisible={true} />
         <MapView />
         <ManageSpots />
-
         <Profile type={'update'} />
         <Profile type={'regristration'} />
-        <Login></Login>
+        <Login></Login> */}
+        <MyBookings />
       </div>
     )
   };
