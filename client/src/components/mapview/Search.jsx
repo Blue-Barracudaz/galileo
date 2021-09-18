@@ -80,7 +80,12 @@ class Search extends React.Component {
       <div id="search-container">
         <div id="search-result-count">{spots}</div>
         <div id="search-options-container">
-          <TxtBox label={'Location'} placeholder={'Where are you going?'} handleInput={this.handleAddressInput}/>
+          <TxtBox
+            label={'Location'}
+            type={'search'}
+            placeholder={'Where are you going?'}
+            handleInput={this.handleAddressInput}
+          />
           <div id="reservation-options-container">
             <div className="reservation-options-element">
               <div className="search-label">Start Date</div>
