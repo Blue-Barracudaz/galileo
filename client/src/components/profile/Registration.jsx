@@ -6,6 +6,13 @@ import Login from '../login/Login.jsx';
 import $ from 'jquery';
 import TabSelector from '../shared/tabSelector/TabSelector.jsx'
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 class Registration extends React.Component {
   constructor(props) {
     super(props);
@@ -46,10 +53,10 @@ class Registration extends React.Component {
     });
   }
 
-  backtoLogin(){
-    // console.log('backtoLogin');
-    this.setState({back:true})
-  }
+  // backtoLogin(){
+  //   // console.log('backtoLogin');
+  //   this.setState({back:true})
+  // }
 
   submit(event) {
     event.preventDefault();
@@ -60,9 +67,14 @@ class Registration extends React.Component {
   showBacktoLogin(){
     if (this.props.btn === 'Finish Registration') {
       return (
-        <div className="backtoLogin" onClick={this.backtoLogin.bind(this)}>
+        // <div className="backtoLogin" onClick={this.backtoLogin.bind(this)}>
+        <div className="backtoLogin" onClick={() => {
+          localStorage.removeItem('username');
+          localStorage.removeItem('user_id');
+        }}>
           <div className="backBtn">{'\u1438'} </div>
-          <div className="backWord"> Back to Login</div>
+          {/* <div className="backWord"> Back to Login</div> */}
+          <div className="backWord"> <Link to="/">Back to Login</Link></div>
         </div>
       )
     }
