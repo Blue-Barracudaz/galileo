@@ -28,7 +28,6 @@ class Registration extends React.Component {
 
     if (this.props.btn === 'Save Information') {
       let user_id = localStorage.getItem('user_id')||1;
-      // axios.get, db.getUser
       $.ajax({
         url: `http://localhost:3000/my-profile/${user_id}`,
         type: 'GET',
@@ -80,7 +79,7 @@ class Registration extends React.Component {
   showLogout(){
     if (this.props.btn === 'Save Information') {
       return (
-        <div className="LogOut" onClick={() => {
+        <div className="logOut" onClick={() => {
           localStorage.removeItem('username');
           localStorage.removeItem('user_id');
         }}>
@@ -109,7 +108,7 @@ class Registration extends React.Component {
 
     return (
       <div>
-          { this.showLogout()}
+        { this.showLogout()}
         <div className="registration">
           { this.showBacktoLogin() }
           <form onSubmit = {this.submit.bind(this)} className={className}>
