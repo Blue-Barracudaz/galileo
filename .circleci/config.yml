@@ -20,7 +20,7 @@ jobs:
           NODE_ENV: test
           TEST_DATABASE_URL: postgresql://postgres@localhost/galileo_test
           POSTGRES_DB: galileo_test
-      - image: circleci/postgres:9.6-alpine-postgis-ram
+      - image: circleci/postgres:latest-postgis
         environment:
         # POSTGRES_USER: postgres
           POSTGRES_DB: galileo_test
