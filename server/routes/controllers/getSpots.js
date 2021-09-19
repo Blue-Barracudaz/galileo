@@ -12,7 +12,7 @@ const getSpotsRoute = (req, res) => {
     })
 };
 
-const getFreeSpotsRoute = (req, res) => { // I added this
+const getFreeSpotsRoute = (req, res) => {
   console.log('req.query:', req.query);
   return models.getFreeSpots(req.query.lat, req.query.lng, req.query.start, req.query.end)
     .then((spots) => {
@@ -24,4 +24,4 @@ const getFreeSpotsRoute = (req, res) => { // I added this
 }
 
 module.exports.getSpotsRoute = getSpotsRoute;
-module.exports.getFreeSpotsRoute = getFreeSpotsRoute; // I added this
+module.exports.getFreeSpotsRoute = getFreeSpotsRoute;
