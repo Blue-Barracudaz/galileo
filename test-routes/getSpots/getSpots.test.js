@@ -16,7 +16,7 @@ beforeEach(async () => {
     type varchar(50),
     price integer,
     photo_url text,
-    geom GEOMETRY(Point, 4326)
+    geom GEOMETRY(Point)
     );`
   );
 
