@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const Profile = require('./controllers/Profile');
-const getSpotsRoute = require('./controllers/getSpots').getSpotsRoute;
 const getFreeSpotsRoute = require('./controllers/getSpots').getFreeSpotsRoute;
 
 const profileRequests = require('./controllers/profileRequests');

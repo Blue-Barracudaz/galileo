@@ -1,45 +1,5 @@
 const client = require('../../db/index.js').client;
 
-const getSpots = () => {
-  let query = `SELECT spot_id, host_id, lat, long, address, type, price, photo_url, ST_AsText(geom) AS geom FROM spots;`
-  return client.query(query)
-    .then((spots) => {
-      console.log('SPOTS IN MODELS', spots.rows);
-      let requiredSpots = spots.rows.map((spot) => {
-        return {
-          spot_id: spot.spot_id,
-          address: spot.address,
-          location: {
-            lat: Number(spot.lat),
-            lng: Number(spot.long)
-          }
-        }
-      });
-      console.log('REQUIRED SPOTS MODELS', requiredSpots)
-      return requiredSpots;
-    })
-    .catch ((err) => {
-      console.log('ERRRO GETTING SPOTS FROM DB IN MODELS', err)
-      throw err;
-    })
-};
-
-const getNearbySpots = (lat, long) => {
-  let location = `POINT(${lat} ${long})`;
-  let query = `SELECT spot_id FROM spots WHERE ST_DWithin(geom, ST_GeomFromText($1, 4326)::geography, 500);`;
-  let values = [location];
-  console.log('VALUES', values);
-  return client.query(query, values)
-    .then((spots) => {
-      console.log('NEARBY SPOTS', spots.rows)
-      return spots.rows;
-    })
-    .catch ((err) => {
-      console.log('ERROR GETTING NEARBY SPOTS FROM DB IN MODELS', err);
-      throw err;
-    })
-}
-
 const getFreeSpots = (lat, long, userStartTime, userEndTime) => {
   let location = `POINT(${lat} ${long})`;
   let nearbyValues = [location];
@@ -97,8 +57,4 @@ const getFreeSpots = (lat, long, userStartTime, userEndTime) => {
     })
 }
 
-// getFreeSpots(35.36528232408647, -120.85140906483694, 1631314800, 1631318400); //4-5pm
-
-module.exports.getSpots = getSpots;
-module.exports.getNearbySpots = getNearbySpots;
 module.exports.getFreeSpots = getFreeSpots;
