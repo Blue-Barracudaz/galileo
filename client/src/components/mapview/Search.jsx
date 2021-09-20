@@ -74,12 +74,19 @@ class Search extends React.Component {
 
   render() {
     const times = generateTimes();
+    const spots = !this.props.searchMade ? 'ready for liftoff...' : this.props.spotsFound;
 
     return (
       <div id="search-container">
-        {/* <div>{this.props.spotsFound}</div> */}
+        <div id="search-result-count">{spots}</div>
         <div id="search-options-container">
-          <TxtBox label={'Location'} placeholder={'Where are you going?'} handleInput={this.handleAddressInput}/>
+          <div className='line'></div>
+          <TxtBox
+            label={'Location'}
+            type={'search'}
+            placeholder={'Where are you going?'}
+            handleInput={this.handleAddressInput}
+          />
           <div id="reservation-options-container">
             <div className="reservation-options-element">
               <div className="search-label">Start Date</div>
