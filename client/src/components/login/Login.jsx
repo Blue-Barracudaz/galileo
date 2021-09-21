@@ -29,6 +29,12 @@ class Login extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.setState = (state,callback)=>{
+      return;
+  };
+  }
+
   handleChange(){
     this.setState({
       [event.target.name]: event.target.value,

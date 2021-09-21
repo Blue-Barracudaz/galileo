@@ -42,7 +42,7 @@
 
 .logOut {
   padding-left: 35vh;
-  padding-top: 5vh;
+  padding-top: 8vh;
 }
 
 .logOutWord {
@@ -53,7 +53,7 @@
 
 .updateContainer,
 .registrationContainer {
-  padding-top: 10vh;
+  padding-top: 12vh;
   display: flex;
   flex-direction: column;
   width: 90%;
