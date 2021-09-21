@@ -24,3 +24,9 @@
   display: flex;
   justify-content: center;
 }
+
+#modal-content-button-link {
+  position: absolute;
+  left: 15vw;
+  width: 100%;
+}

@@ -73,3 +73,9 @@
   padding-top: 3vh;
   padding-bottom: 2vh;
 }
+
+#booking-button-link {
+  position: absolute;
+  left: 15vw;
+  width: 100%;
+}
