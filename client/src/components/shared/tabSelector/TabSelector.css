@@ -12,7 +12,6 @@
   align-content: center;
   display: grid;
   grid-column: auto;
-  gap: 15%;
   margin-right: 30px;
 }
 
@@ -26,6 +25,8 @@
   margin-right: auto;
   margin-top: auto;
   margin-bottom: auto;
+  padding-top: 0.75vh;
+  padding-bottom: 0.75vh;
   padding-left: 3px;
   max-width: 80%;
   max-height: 80%;
