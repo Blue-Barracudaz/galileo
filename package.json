@@ -17,9 +17,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest",
-    "test-w": "jest --watch",
-    "coverage": "jest --coverage",
+    "test": "jest --runInBand",
+    "test-w": "jest --watch --runInBand",
+    "coverage": "jest --coverage --runInBand",
     "start": "nodemon server/index.js",
     "react-dev": "webpack --mode development --watch",
     "build": "webpack --mode development"
