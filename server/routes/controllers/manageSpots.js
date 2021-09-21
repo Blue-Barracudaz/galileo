@@ -48,7 +48,6 @@ const getSpotDetails = (req, res) => {
 
 const updateSpotDetails = (req, res) => {
   // req.body = { photo:   , type:    , spotId:     , price:    }
-  console.log('body', req.body);
   model.updateInfo(req.body)
     .then(() => {
       // console.log('success updating spot details - controller');

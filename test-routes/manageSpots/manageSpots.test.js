@@ -32,7 +32,7 @@ afterAll(async () => {
 
 describe('get host spots', () => {
 
-  it('should return a 200 status code on success', async () => {
+  it('should send 200 status code on success', async () => {
     let response = await request.get('/my-spots?id=1');
     expect(response.statusCode).toBe(200);
   });
@@ -61,20 +61,19 @@ describe('get spot details', () => {
 });
 
 describe('update spot details', () => {
+  const options = {
+    spotId: 1,
+    price: 50,
+    type: 'garage',
+    photo: 'https://images.newscientist.com/wp-content/uploads/2013/10/mg22029415.600-1_800.jpg?width=778'
+  };
 
   it('should send 204 status code on success', async () => {
-    let response = await request.put('/update-spot-details').send({price: 100})
+    let response = await request.put('/update-spot-details').send(options)
     expect(response.statusCode).toBe(204);
   });
 
   it('should update spot info', async () => {
-    let options = {
-      spotId: 1,
-      price: 50,
-      type: 'garage',
-      photo: 'https://images.newscientist.com/wp-content/uploads/2013/10/mg22029415.600-1_800.jpg?width=778'
-    };
-
     let response1 = await request.get('/spot-details?id=1');
     expect(response1.body[0].price).toBe(5);
     expect(response1.body[0].type).toBe('driveway');
@@ -97,7 +96,7 @@ describe('add new spot', () => {
     photo: 'https://images.newscientist.com/wp-content/uploads/2013/10/mg22029415.600-1_800.jpg?width=778',
   }
 
-  it('should send a 201 status code on success', async () => {
+  it('should send 201 status code on success', async () => {
     let response = await request.post('/add-spot').send(options);
     expect(response.statusCode).toBe(201);
   });
@@ -113,12 +112,4 @@ describe('add new spot', () => {
   });
 
 });
-
-// describe('upload image', () => {
-//   it('should send a 201 status code on success', async () => {
-//     let response = await request.post('/add-spot').send(options);
-//     expect(response.statusCode).toBe(201);
-//   });
-
-// });
 
