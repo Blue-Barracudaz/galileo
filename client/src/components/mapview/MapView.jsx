@@ -32,7 +32,6 @@ class MapView extends React.Component {
     this.openBottomModal = this.openBottomModal.bind(this);
     this.closeBottomModal = this.closeBottomModal.bind(this);
     this.selectSpot = this.selectSpot.bind(this);
-    this.deSelectSpot = this.deSelectSpot.bind(this);
   }
 
   getFreeSpots(lat, lng, start, end) {
@@ -66,9 +65,11 @@ class MapView extends React.Component {
   }
 
   openBottomModal() {
-    this.setState({
-      showBottomModal: true
-    });
+    if (!this.state.showBottomModal) {
+      this.setState({
+        showBottomModal: true
+      });
+    }
   }
 
   closeBottomModal() {
@@ -85,13 +86,6 @@ class MapView extends React.Component {
     });
   }
 
-  deSelectSpot() {
-    this.setState({
-      selectedSpot: '',
-      spotSelected: false
-    });
-  }
-
   render() {
     return (
       <div className="map-view" style={{ width: "100vw", height: "100vh" }}>
@@ -101,11 +95,12 @@ class MapView extends React.Component {
           spots={this.state.spots}
           selectSpot={this.selectSpot}
           spotSelected={this.state.spotSelected}
-          deSelectSpot={this.deSelectSpot}
           openBottomModal={this.openBottomModal}
+          searchMade={this.state.reservationStartTime} // using reservation start to indicate if a search has been made. it will be null until user searches...
         />
         <Search
-          // spotsFound={this.state.spots.length === 1 ? '1 nearby spot' : `${this.state.spots.length} nearby spots`}
+          searchMade={this.state.reservationStartTime} // using reservation start to indicate if a search has been made. it will be null until user searches...
+          spotsFound={this.state.spots.length === 1 ? '1 nearby spot' : `${this.state.spots.length} nearby spots`}
           getFreeSpotsAndUpdate={this.getFreeSpotsAndUpdate}
         />
         <BottomModal

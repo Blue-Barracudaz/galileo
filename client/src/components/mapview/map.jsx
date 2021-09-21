@@ -18,7 +18,7 @@ class MapContainer extends React.Component {
   onClick = (spot) => {
     this.setState({selected: spot});
     this.props.selectSpot(spot);
-    this.props.openBottomModal(); //TODO this could be improved by not opening the modal if it's already open...
+    this.props.openBottomModal();
   }
 
   render() {
@@ -29,7 +29,7 @@ class MapContainer extends React.Component {
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={this.props.center}
-          zoom={16}
+          zoom={17}
         >
           {
             this.props.spots.map((spot) => {
@@ -43,6 +43,9 @@ class MapContainer extends React.Component {
               )
             })
           }
+          {
+            this.props.searchMade && <Marker position={this.props.center} // user searched location marker
+          />}
         </GoogleMap>
       </LoadScript>
     )
