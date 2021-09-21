@@ -3,6 +3,7 @@ import React from 'react';
 import style from './Registration.css'
 import Button from '../shared/button/button.jsx';
 import Login from '../login/Login.jsx';
+import PageHeader from '../shared/pageHeader/pageHeader.jsx';
 import $ from 'jquery';
 import TabSelector from '../shared/tabSelector/TabSelector.jsx'
 import {
@@ -61,9 +62,11 @@ class Registration extends React.Component {
         <div className="backtoLogin" onClick={() => {
           localStorage.removeItem('username');
           localStorage.removeItem('user_id');
+          this.props.history.push('/');
         }}>
           <div className="backBtn">{'\u1438'} </div>
-          <div className="backWord"> <Link to="/">Back to Login</Link></div>
+          {/* <div className="backWord"> <Link to="/">Back to Login</Link></div> */}
+          <div className="backWord"> Back to Login</div>
         </div>
       )
     }
@@ -76,14 +79,18 @@ class Registration extends React.Component {
       )
     }
   }
+
   showLogout(){
     if (this.props.btn === 'Save Information') {
       return (
-        <div className="logOut" onClick={() => {
-          localStorage.removeItem('username');
-          localStorage.removeItem('user_id');
-        }}>
+        <div>
+          <PageHeader title={'Profile Information'} />
+          <div className="logOut" onClick={() => {
+            localStorage.removeItem('username');
+            localStorage.removeItem('user_id');
+          }}>
             <div className="logOutWord"> <Link to="/">Log Out</Link></div>
+          </div>
         </div>
       )
     }
