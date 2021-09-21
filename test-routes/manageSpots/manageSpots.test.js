@@ -78,6 +78,7 @@ describe('update spot details', () => {
     let response1 = await request.get('/spot-details?id=1');
     expect(response1.body[0].price).toBe(5);
     expect(response1.body[0].type).toBe('driveway');
+
     await request.put('/update-spot-details').send(options);
     let response2 = await request.get('/spot-details?id=1');
     expect(response2.body[0].price).toBe(50);
@@ -85,11 +86,39 @@ describe('update spot details', () => {
   });
 });
 
-
 describe('add new spot', () => {
+  const options = {
+    hostId: 1,
+    lat: 37.762592178167665,
+    long: -122.5063187612811,
+    price:  20,
+    address: '4500 Irving St, San Francisco, CA 94122',
+    type: 'driveway',
+    photo: 'https://images.newscientist.com/wp-content/uploads/2013/10/mg22029415.600-1_800.jpg?width=778',
+  }
+
+  it('should send a 201 status code on success', async () => {
+    let response = await request.post('/add-spot').send(options);
+    expect(response.statusCode).toBe(201);
+  });
+
+  it('should add new parking spot', async () => {
+    let response1 = await request.get('/my-spots?id=1');
+    let spotCount = response1.body.length;
+
+    await request.post('/add-spot').send(options);
+    let response2 = await request.get('/my-spots?id=1');
+    let newCount = response2.body.length;
+    expect(newCount).toBe(spotCount + 1);
+  });
 
 });
-describe('upload image', () => {
 
-});
+// describe('upload image', () => {
+//   it('should send a 201 status code on success', async () => {
+//     let response = await request.post('/add-spot').send(options);
+//     expect(response.statusCode).toBe(201);
+//   });
+
+// });
 
