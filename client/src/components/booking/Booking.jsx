@@ -3,30 +3,26 @@ import axios from 'axios';
 import './Booking.css';
 import PageHeader from '../shared/pageHeader/pageHeader.jsx';
 import Button from '../shared/button/button.jsx';
+import { withRouter, Link } from "react-router-dom";
 
 class Booking extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      address: 'E 60th Hyatt Place New York NY 1005',
-      price: 15,
-      fee: 0.75,
-      hour: 2,
-      photo: "https://archinect.imgix.net/uploads/3d/3ddb00ec0feb2ed25b6804cfbc16c7d1.jpg?auto=compress%2Cformat"
+      hour: 20
     };
-    this.spotID = 27;
+    this.hour = (this.props.reservation.UNIXend - this.props.reservation.UNIXstart) / 3600;
+    this.fee = 0.75;
     this.renterID = 3;
-    this.startTime = 1631750952568;
-    this.endTime = 1631750989351;
     this.handleConfirmBookingButtonClick = this.handleConfirmBookingButtonClick.bind(this);
   }
 
   handleConfirmBookingButtonClick() {
     axios.post('/booking', {
-      spot_id: this.spotID,
-      renter_id: this.renterID,
-      start_time: this.startTime,
-      end_time: this.endTime
+      spot_id: this.props.reservation.spot_id,
+      renter_id: this.props.user_id,
+      start_time: this.props.reservation.UNIXstart,
+      end_time: this.props.reservation.UNIXend
     })
       .then((res) => {
       })
@@ -39,16 +35,16 @@ class Booking extends React.Component {
     return (
       <div id="booking">
         <div id="booking-header">
-          <PageHeader title={'Confirm Booking'} isVisible={true} />
+          <PageHeader title={'Confirm Booking'} isVisible={true} isBackButtonVisible={true} linkto={"/rent"} />
         </div>
         <div id="booking-body">
             <div id="booking-spot-container">
               <div id="booking-spot-photo-container">
-                <img id="booking-spot-photo" src={this.state.photo} />
+                <img id="booking-spot-photo" src={this.props.reservation.photo} />
               </div>
               <div id="booking-spot-address-container">
-                <div>{this.state.address}</div>
-                <div>{`$${this.state.price}/hour`}</div>
+                <div>{this.props.reservation.address}</div>
+                <div>{`$${this.props.reservation.price}/hour`}</div>
             </div>
           </div>
           <hr className="booking-hr" />
@@ -56,12 +52,12 @@ class Booking extends React.Component {
             <table id="booking-price-table">
               <tbody>
                 <tr id={"booking-price-table-price"}>
-                  <td className="booking-price-table-col1">{`\$${this.state.price} x ${this.state.hour}`}</td>
-                  <td className="booking-price-table-col2">{`\$${(this.state.price * this.state.hour).toFixed(2)}`}</td>
+                  <td className="booking-price-table-col1">{`\$${this.props.reservation.price} x ${this.hour}`}</td>
+                  <td className="booking-price-table-col2">{`\$${(this.props.reservation.price * this.hour).toFixed(2)}`}</td>
                 </tr>
                 <tr id={"booking-price-table-fee"}>
                   <td className="booking-price-table-col1">Service Fee</td>
-                  <td className="booking-price-table-col2">{`\$${(this.state.fee).toFixed(2)}`}</td>
+                  <td className="booking-price-table-col2">{`\$${(this.fee).toFixed(2)}`}</td>
                 </tr>
                 <tr id={"booking-price-table-empty"}>
                   <td className="booking-price-table-col1"></td>
@@ -69,7 +65,7 @@ class Booking extends React.Component {
                 </tr>
                 <tr id={"booking-price-table-total"}>
                   <td className="booking-price-table-col1">Total</td>
-                  <td className="booking-price-table-col2">{`\$${(this.state.price * this.state.hour + this.state.fee).toFixed(2)}`}</td>
+                  <td className="booking-price-table-col2">{`\$${(this.props.reservation.price * this.hour + this.fee).toFixed(2)}`}</td>
                 </tr>
               </tbody>
             </table>
@@ -81,7 +77,7 @@ class Booking extends React.Component {
           </div>
           <hr className="booking-hr" />
           <div id="booking-button-container">
-            <Button text={'Confirm'} func={this.handleConfirmBookingButtonClick} />
+            <Link to="/rent" id="booking-button-link"><Button text={'Confirm'} func={this.handleConfirmBookingButtonClick} /></Link>
           </div>
         </div>
       </div>
@@ -89,7 +85,7 @@ class Booking extends React.Component {
   };
 }
 
-export default Booking;
+export default withRouter(Booking);
 
 
 
