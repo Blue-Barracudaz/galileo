@@ -9,6 +9,7 @@
   padding-bottom: 5vh;
 }
 
+.logOut,
 .noBacktoLogin,
 .backtoLogin {
   padding: 0.5vh 0;
@@ -36,34 +37,32 @@
 .backWord {
   padding-top: 1vh;
   padding-left: 1vh;
+  opacity: 0.7;
 }
 
 .logOut {
-  padding: 0.5vh 0;
-  height: 5%;
-  display: flex;
-  justify-content: space-around;
-  cursor: pointer;
-  font-size: 2vh;
+  padding-left: 35vh;
+  padding-top: 8vh;
 }
 
 .logOutWord {
   padding-top: 1vh;
   padding-right: 1vh;
+  opacity: 0.7;
 }
 
 .updateContainer,
 .registrationContainer {
-  padding-top: 10vh;
+  padding-top: 12vh;
   display: flex;
   flex-direction: column;
   width: 90%;
   align-self: center;
 }
 
-/* .updateContainer {
-  padding-top: 15.5vh;
-} */
+.updateContainer {
+  padding-top: 5vh;
+}
 
 .registrationInput {
   padding: 22px 20px;
@@ -89,4 +88,14 @@
 
 button:hover {
   opacity: 0.8;
+}
+
+.logOutWord:hover,
+.backWord:hover {
+  opacity: 1;
+}
+
+.header {
+  position: flex;
+  background-color: powderblue;
 }

@@ -13,7 +13,7 @@
   text-align: center;
   font-family: 'Helvetica';
   color: rgba(0, 0, 0, 0.7);
-  box-shadow: inset 0 5px 5px -5px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 1px 10px 0 #707070
 }
 
 .page-header-hr {
@@ -34,3 +34,4 @@
   color: inherit;
   text-decoration: inherit;
 }
+
