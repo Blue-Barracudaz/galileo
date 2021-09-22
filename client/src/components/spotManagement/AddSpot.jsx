@@ -96,7 +96,7 @@ class AddSpot extends React.Component {
     } else {
       photoDisplay =
        <div className='add-spot-photo'>
-        <label for='file' className='photo-upload'>Add Photo</label>
+        <label htmlFor='file' className='photo-upload'>Add Photo</label>
         <input type="file" id='file' className='photo-input' accept='image/png, image/jpeg' onChange={this.sendFile}></input>
        </div>
     }

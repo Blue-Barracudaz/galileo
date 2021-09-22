@@ -101,7 +101,7 @@ class UpdateSpot extends React.Component {
 
        <div className='add-spot-form'>
           <div style={{backgroundImage: `url("${this.state.photo}")`, backgroundSize: 'cover'}}className='add-spot-photo'>
-            <label for='file' style={{color: 'white'}} className='photo-upload'>Edit Photo</label>
+            <label htmlFor='file' style={{color: 'white'}} className='photo-upload'>Edit Photo</label>
             <input type="file" id='file' className='photo-input' accept='image/png, image/jpeg' onChange={this.sendFile}></input>
           </div>
 
