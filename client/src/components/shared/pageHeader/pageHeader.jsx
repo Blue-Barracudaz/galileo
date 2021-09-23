@@ -8,7 +8,7 @@ const PageHeader = ({ title, isVisible = true, isBackButtonVisible = false, link
   if (isVisible) {
     return (
       <div className="page-header">
-        <div className="page-header-back"><Link to={linkto} className="page-header-back-link">{'\u1438'}</Link></div>
+        {isBackButtonVisible? <div className="page-header-back"><Link to={linkto} className="page-header-back-link">{'\u1438'}</Link></div> : <div></div>}
         {/* <h1 style={{ fontSize: "2vh" }}>{title.toUpperCase()}</h1> */}
         <h1 className="header">{title.toUpperCase()}</h1>
       </div>
