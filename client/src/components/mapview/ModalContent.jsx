@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from '../shared/button/button.jsx'
 import './ModalContent.css';
+import { Link } from "react-router-dom";
+
 
 export default ({ address, price, photo, spot_id, reservationStartTime, reservationEndTime, reservationStartDate, reservationEndDate, UNIXstart, UNIXend, handleBookNow }) => (
   <div id="modal-content-container">
@@ -14,7 +16,7 @@ export default ({ address, price, photo, spot_id, reservationStartTime, reservat
       </div>
     </div>
     <div id="modal-content-button-container">
-      <Button text={'Book Now'} func={() => {
+      <Link to="/reservation" id="modal-content-button-link"><Button text={'Book Now'} func={() => {
         handleBookNow({
           address: address,
           price: price,
@@ -27,7 +29,7 @@ export default ({ address, price, photo, spot_id, reservationStartTime, reservat
           UNIXstart: UNIXstart,
           UNIXend: UNIXend
         });
-      }}/>
+      }}/></Link>
     </div>
   </div>
 );
