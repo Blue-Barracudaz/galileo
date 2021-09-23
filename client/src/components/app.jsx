@@ -56,7 +56,7 @@ class App extends React.Component {
             {()=>(localStorage.getItem('user_id'))? <ManageSpots  />:<Redirect to='/'/>}
             </Route>
             <Route path="/bookings">
-              {()=>(localStorage.getItem('user_id'))? <MyBookings  />:<Redirect to='/'/>}
+              {()=>(localStorage.getItem('user_id'))? <MyBookings user_id={localStorage.getItem('user_id')}/>:<Redirect to='/'/>}
             </Route>
             <Route path="/reservation">
               {()=>(localStorage.getItem('user_id'))? <Booking reservation={this.state.reservation} user_id={localStorage.getItem('user_id')} />:<Redirect to='/'/>}
