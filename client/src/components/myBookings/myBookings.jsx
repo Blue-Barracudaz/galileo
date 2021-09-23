@@ -1,9 +1,9 @@
 import React from 'react';
 import ParkingSpot from '../shared/parkingSpot/parkingSpot.jsx';
 import Trash from '../shared/icons/trash.jsx';
-import MyBookingsHeader from './myBookingsHeader.jsx';
 import './myBookings.css';
 import TabSelector from '../shared/tabSelector/TabSelector.jsx';
+import PageHeader from '../shared/pageHeader/pageHeader.jsx';
 
 class MyBookings extends React.Component {
   constructor(props) {
@@ -17,8 +17,8 @@ class MyBookings extends React.Component {
     console.log('CLICKED DELETED')
   }
 
-  componentDidMount() {
-    fetch(`/my-bookings/${this.props.userId}`)
+  componentDidMount () {
+    fetch(`/my-bookings/${this.props.user_id}`)
       .then((res) => res.json())
       .then((bookings) => {
         console.log('MY BOOKINGS', bookings);
@@ -53,10 +53,12 @@ class MyBookings extends React.Component {
   render() {
     return (
       <div className='my-bookings'>
-        <MyBookingsHeader heading={'Active Bookings'} />
-        {
-          this.state.bookings.map((booking, idx) => <ParkingSpot key={idx} image={booking.photo_url} address={booking.address} date={booking.date} time={booking.time} total={booking.total} onIconClick={this.onClick} ActionIcon={Trash} />)
-        }
+        <PageHeader title='Active Bookings' />
+        <div className='my-bookings-list'>
+          {
+            this.state.bookings.map((booking, idx) => <ParkingSpot key={idx} image={booking.photo_url} address={booking.address} date={booking.date} time={booking.time} total={booking.total} onIconClick={this.onClick}  ActionIcon={Trash}/>)
+          }
+        </div>
         <TabSelector view={3} />
       </div>
     )
