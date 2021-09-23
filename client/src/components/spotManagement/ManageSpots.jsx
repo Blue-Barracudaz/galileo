@@ -68,6 +68,8 @@ class ManageSpots extends React.Component {
 
   render() {
 
+    let tabBar = (this.state.addSpot || this.state.updateSpot) ? null : <TabSelector view={1}/>;
+
     let mainContent =
       <div className='manage-spots-home' >
         <div className='my-spots-container'>
@@ -87,7 +89,7 @@ class ManageSpots extends React.Component {
 
     return (
       <div>
-        <TabSelector view={1}/>
+        {tabBar}
         {mainContent}
       </div>
     );
