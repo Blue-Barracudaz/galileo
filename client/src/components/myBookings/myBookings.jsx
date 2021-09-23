@@ -17,7 +17,7 @@ class MyBookings extends React.Component {
     console.log('CLICKED DELETED')
   }
 
-  componentDidMount () {
+  componentDidMount() {
     fetch(`/my-bookings/${this.props.userId}`)
       .then((res) => res.json())
       .then((bookings) => {
@@ -43,21 +43,21 @@ class MyBookings extends React.Component {
           booking.total = total;
           return booking;
         })
-        this.setState({bookings: requiredBookings}, () => console.log('FINAL BOOKINGS', this.state.bookings))
+        this.setState({ bookings: requiredBookings }, () => console.log('FINAL BOOKINGS', this.state.bookings))
       })
       .catch((err) => {
         console.log('ERROR GETTING MY BOOKINGS', err);
       })
   }
 
-  render () {
+  render() {
     return (
       <div className='my-bookings'>
-        <MyBookingsHeader heading={'Active Bookings'}/>
+        <MyBookingsHeader heading={'Active Bookings'} />
         {
-          this.state.bookings.map((booking, idx) => <ParkingSpot key={idx} image={booking.photo_url} address={booking.address} date={booking.date} time={booking.time} total={booking.total} onIconClick={this.onClick}  ActionIcon={Trash}/>)
+          this.state.bookings.map((booking, idx) => <ParkingSpot key={idx} image={booking.photo_url} address={booking.address} date={booking.date} time={booking.time} total={booking.total} onIconClick={this.onClick} ActionIcon={Trash} />)
         }
-        <TabSelector view={1} />
+        <TabSelector view={3} />
       </div>
     )
   }
