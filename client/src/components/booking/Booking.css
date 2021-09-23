@@ -1,3 +1,7 @@
+#booking {
+  position: absolute;
+}
+
 #booking-header {
   height: 5vh;
 }
@@ -75,7 +79,6 @@
 }
 
 #booking-button-link {
-  position: absolute;
-  left: 15vw;
+  margin-left: 22vw;
   width: 100%;
 }
