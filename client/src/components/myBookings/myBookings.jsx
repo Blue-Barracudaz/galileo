@@ -18,7 +18,6 @@ class MyBookings extends React.Component {
   }
 
   componentDidMount () {
-    console.log('PPROPS.USEID', this.props.user_id)
     fetch(`/my-bookings/${this.props.user_id}`)
       .then((res) => res.json())
       .then((bookings) => {
@@ -54,7 +53,7 @@ class MyBookings extends React.Component {
   render() {
     return (
       <div className='my-bookings'>
-        <PageHeader title='Active Bookings' linkto='/rent'/>
+        <PageHeader title='Active Bookings' />
         <div className='my-bookings-list'>
           {
             this.state.bookings.map((booking, idx) => <ParkingSpot key={idx} image={booking.photo_url} address={booking.address} date={booking.date} time={booking.time} total={booking.total} onIconClick={this.onClick}  ActionIcon={Trash}/>)
