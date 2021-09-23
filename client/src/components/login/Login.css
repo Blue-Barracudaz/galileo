@@ -1,10 +1,10 @@
+
 #background {
   position: fixed;
   height: 100%;
   width: 100%;
   background-color: #CDC4F2;
-  left: 0;
-  top: 0;
+  overflow-x: scroll;
 }
 
 /* FOR TESTING. SWITCH TO ABOVE BACKGROUN FOR REAL. */
@@ -26,5 +26,6 @@
   font-family: "Baloo Bhaijaan", Helvetica, sans-serif;
   font-size: 7vmax;
   color: white;
-  margin-top: 10%;
+  /* margin-top: 10%; */
+  padding-top: 20vh;
 }
