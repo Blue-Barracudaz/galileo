@@ -44,14 +44,14 @@ class MyBookings extends React.Component {
           booking.total = total;
           return booking;
         })
-        this.setState({bookings: requiredBookings}, () => console.log('FINAL BOOKINGS', this.state.bookings))
+        this.setState({ bookings: requiredBookings }, () => console.log('FINAL BOOKINGS', this.state.bookings))
       })
       .catch((err) => {
         console.log('ERROR GETTING MY BOOKINGS', err);
       })
   }
 
-  render () {
+  render() {
     return (
       <div className='my-bookings'>
         <PageHeader title='Active Bookings' linkto='/rent'/>
