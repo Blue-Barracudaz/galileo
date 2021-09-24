@@ -68,13 +68,16 @@ class ManageSpots extends React.Component {
 
   render() {
 
+    let tabBar = (this.state.addSpot || this.state.updateSpot) ? null : <TabSelector view={1}/>;
+
     let mainContent =
       <div className='manage-spots-home' >
+        <PageHeader title={'Spot Management'} linkto='/rent' />
         <div className='my-spots-container'>
           <SpotList spots={this.state.spots} handleSpotClick={this.handleSpotClick} />
         </div>
         <div className='button-container'>
-          <Button func={this.handleAddSpotClick} text={'Add Spot'} />
+          <Button func={this.handleAddSpotClick} text={'Add Spot'} height={'6vh'} width={'75%'} />
         </div>
       </div>;
 
@@ -87,7 +90,7 @@ class ManageSpots extends React.Component {
 
     return (
       <div>
-        <TabSelector view={1}/>
+        {tabBar}
         {mainContent}
       </div>
     );
