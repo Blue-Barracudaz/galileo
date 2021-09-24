@@ -3,7 +3,7 @@ import Button from '../shared/button/button.jsx';
 import './spotManagement.css';
 import TxtBox from '../shared/txtBox/TxtBox.jsx';
 import axios from 'axios';
-// no page header
+import PageHeader from '../shared/pageHeader/pageHeader.jsx';
 
 class UpdateSpot extends React.Component {
   constructor(props) {
@@ -98,6 +98,12 @@ class UpdateSpot extends React.Component {
 
     return (
       <div className='add-spot-home'>
+        <div className="page-header">
+          <div className="page-header-back">
+            <div className="page-header-back-link" onClick={this.props.resetHomePage}>{'\u1438'}</div>
+          </div>
+          <h1 className="header">{'SPOT DETAILS'}</h1>
+        </div>
 
        <div className='add-spot-form'>
           <div style={{backgroundImage: `url("${this.state.photo}")`, backgroundSize: 'cover'}}className='add-spot-photo'>

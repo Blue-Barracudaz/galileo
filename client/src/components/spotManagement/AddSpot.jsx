@@ -3,8 +3,8 @@ import Button from '../shared/button/button.jsx';
 import axios from 'axios';
 import './spotManagement.css';
 import Geocode from "react-geocode";
-// Geocode.setApiKey(process.env.GOOGLE_API);
-// no page header
+import PageHeader from '../shared/pageHeader/pageHeader.jsx';
+
 
 class AddSpot extends React.Component {
   constructor(props) {
@@ -103,6 +103,12 @@ class AddSpot extends React.Component {
 
     return (
       <div className='add-spot-home'>
+       <div className="page-header">
+        <div className="page-header-back">
+          <div className="page-header-back-link" onClick={this.props.resetHomePage}>{'\u1438'}</div>
+        </div>
+        <h1 className="header">{'ADD SPOT'}</h1>
+       </div>
 
        <div className='add-spot-form'>
           {photoDisplay}
