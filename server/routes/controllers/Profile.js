@@ -6,7 +6,7 @@ const getProfile = async (req,res) =>{
     const newPost = await models.getProfile(req.params.user_id);
     res.status(201).json(newPost)
   }catch(error) {
-    console.log(error)
+
     res.status(500).send(error)
   }
 };
@@ -14,10 +14,10 @@ const getProfile = async (req,res) =>{
 const createProfile = async (req,res) =>{
   try {
     const result = await models.createProfile(req.body);
-    console.log(result)
+
     res.status(201).json(result)
   }catch(error) {
-    console.log(error)
+
     res.status(500).send(error)
   }
 };
@@ -25,10 +25,10 @@ const updateProfile = async (req,res) =>{
   try {
     const {user_id,...data} = req.body
     const result = await models.updateProfile(data,user_id);
-    console.log(result)
+
     res.status(201).json(result)
   }catch(error) {
-    console.log(error)
+
     res.status(500).send(error)
   }
 };

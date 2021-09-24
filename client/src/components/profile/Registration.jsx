@@ -97,10 +97,7 @@ class Registration extends React.Component {
   }
 
   render() {
-    if (this.state.back)
-      {return (
-        <Login />
-      )}
+
 
     let className, username, change;
     if (this.props.btn === 'Save Information') {
