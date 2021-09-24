@@ -63,14 +63,12 @@ describe ('Login a user', () => {
       password: '1234'
     }
     let getUserresponse = await request
-      .post('/login')
-      .set('Content-type', 'application/json')
-      .send(loginuser)
-      .expect(200)
-      .then( res => {
-        expect(res.body.user_id).toEqual(1);
-        expect(res.body.password).toEqual('1234');
-      } )
+    .post('/login')
+    .send(loginuser);
+    expect(getUserresponse.statusCode).toBe(200);
+    expect(getUserresponse.body.user_id).toEqual(1);
+    expect(getUserresponse.body.password).toEqual('1234');
+
 
   })
 
@@ -82,14 +80,11 @@ describe ('Login a user', () => {
     }
     let getUserresponse = await request
       .post('/login')
-      .set('Content-type', 'application/json')
-      .send(loginuser)
-      .expect(200)
-      .then( res => {
-        expect(res.text).toEqual('noExistUser');
-      } )
+      .send(loginuser);
+      expect(getUserresponse.statusCode).toBe(200);
+      expect(getUserresponse.text).toEqual('noExistUser');
 
-  })
+    })
 
   it('should respond with incorrect password', async () => {
 
@@ -98,13 +93,10 @@ describe ('Login a user', () => {
       password: '123'
     }
     let getUserresponse = await request
-      .post('/login')
-      .set('Content-type', 'application/json')
-      .send(loginuser)
-      .expect(200)
-      .then( res => {
-        expect(res.text).toEqual('failLogin');
-      } )
+    .post('/login')
+    .send(loginuser);
+    expect(getUserresponse.statusCode).toBe(200);
+    expect(getUserresponse.text).toEqual('failLogin');
 
   })
 
