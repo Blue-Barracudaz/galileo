@@ -16,13 +16,13 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 90%;
+  height: 100%;
   justify-content: space-between;
   align-items: flex-start;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 3%;
+  /* padding-top: 3%; */
   left: 0;
   right: 0;
   /* text-align: center; */

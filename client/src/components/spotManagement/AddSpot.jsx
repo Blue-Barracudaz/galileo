@@ -26,7 +26,6 @@ class AddSpot extends React.Component {
   }
 
   handleConfirmClick() {
-    // post spot to server/db
     let options = this.state;
 
     Geocode.fromAddress(this.state.address)
@@ -72,10 +71,8 @@ class AddSpot extends React.Component {
     formData.append('spotImage', event.target.files[0]);
     console.log('value', event.target.files[0]);
     console.log('formData', formData.get('spotImage'));
-    // send to server, add to s3
     axios.post(`http://localhost:3000/uploadImage`, formData)
       .then((results) => {
-        // upon success response, get the photo url from s3 and add it to state
         let url = results.data;
         console.log('photo post results', url);
         this.setPhotoUrl(url);
