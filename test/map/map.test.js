@@ -1,8 +1,38 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import MapView from '../../client/src/components/mapview/MapView.jsx';
+import { mount, shallow } from 'enzyme';
+import MapView  from '../../client/src/components/mapview/MapView.jsx';
+import Map from '../../client/src/components/mapview/map.jsx';
+import Search from '../../client/src/components/mapview/Search.jsx';
+import fakeSpots from '../../client/src/components/mapview/fakeSpots.js';
 
-test('checks that MapView component is rendering', () => {
-  const wrapper = shallow(<MapView />, {disableLifecycleMethods: true})
-  expect(wrapper.children()).toHaveLength(1);
+describe('MapView component', () => {
+  const wrapper = shallow(<MapView.WrappedComponent />, {disableLifecycleMethods: true})
+
+  it('renders and has the correct number of children', () => {
+    expect(wrapper.exists()).toBe(true);
+    expect(wrapper.children()).toHaveLength(4);
+  });
+
+  it('contains a map component', () => {
+    expect(wrapper.find(Map).exists()).toBe(true);
+  });
+
+  it('contains a search component', () => {
+    expect(wrapper.find(Search).exists()).toBe(true);
+  })
+
+});
+
+describe('Map component', () => {
+  const wrapper = mount(<Map spots={fakeSpots}/>, {disableLifecycleMethods: true})
+  it('renders', () => {
+    expect(wrapper.exists()).toBe(true);
+  });
+});
+
+describe('Search component', () => {
+  const wrapper = shallow(<Search />, {disableLifecycleMethods: true});
+  it('renders', () => {
+    expect(wrapper.exists()).toBe(true);
+  });
 });
