@@ -52,13 +52,52 @@ describe ('Create a new user', () => {
     let updateresponse = await request.put('/update-my-profile').send(user)
     // console.log('NEW USER2', response.body);
     expect(updateresponse.statusCode).toBe(500);
+  })
+})
+
+describe ('Login a user', () => {
+  it('should respond with the initial user', async () => {
+
+    let loginuser = {
+      username: 'owner1',
+      password: '1234'
+    }
+    let getUserresponse = await request
+    .post('/login')
+    .send(loginuser);
+    expect(getUserresponse.statusCode).toBe(200);
+    expect(getUserresponse.body.user_id).toEqual(1);
+    expect(getUserresponse.body.password).toEqual('1234');
+
+
+  })
+
+  it('should not respond with the new user', async () => {
+
     let loginuser = {
       username: 'owner2',
       password: 'owner2'
     }
-    let getUserresponse = await request.post('/login').send(loginuser)
-    // console.log('NEW USER2', response.body);
+    let getUserresponse = await request
+      .post('/login')
+      .send(loginuser);
+      expect(getUserresponse.statusCode).toBe(200);
+      expect(getUserresponse.text).toEqual('noExistUser');
+
+    })
+
+  it('should respond with incorrect password', async () => {
+
+    let loginuser = {
+      username: 'owner1',
+      password: '123'
+    }
+    let getUserresponse = await request
+    .post('/login')
+    .send(loginuser);
     expect(getUserresponse.statusCode).toBe(200);
+    expect(getUserresponse.text).toEqual('failLogin');
 
   })
+
 })

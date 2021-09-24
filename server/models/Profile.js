@@ -13,7 +13,7 @@ exports.createProfile = async (post) => {
 
   const {username,password,email,first_name,last_name}= post;
   let query = `INSERT INTO users (user_id,username, password, first_name, last_name, email) VALUES (default,'${username}','${password}','${first_name}','${last_name}','${email}')  ON CONFLICT (username) DO NOTHING`;
-  console.log(query)
+  // console.log(query)
   try {
     let ans = await client.query(query);
     return ans;
