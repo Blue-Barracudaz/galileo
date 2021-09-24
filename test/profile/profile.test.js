@@ -4,7 +4,7 @@ import Profile from '../../client/src/components/profile/Profile.jsx';
 import Registration from '../../client/src/components/profile/Registration.jsx';
 
 test('checks that Registration component is rendering', () => {
-  const wrapper = shallow(<Registration />, {disableLifecycleMethods: false})
+  const wrapper = shallow(<Registration.WrappedComponent />, {disableLifecycleMethods: false})
   expect(wrapper.children()).toHaveLength(1);
   // expect(wrapper.find('registration')).toHaveLength(1);
   expect(wrapper.find('label').exists()).toEqual(true);

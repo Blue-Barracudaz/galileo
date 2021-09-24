@@ -138,4 +138,4 @@ class Registration extends React.Component {
 
 }
 
-export default Registration;
+export default withRouter(Registration);
