@@ -3,6 +3,7 @@ import { mount, shallow } from 'enzyme';
 import MapView  from '../../client/src/components/mapview/MapView.jsx';
 import Map from '../../client/src/components/mapview/map.jsx';
 import Search from '../../client/src/components/mapview/Search.jsx';
+import ModalContent from '../../client/src/components/mapview/ModalContent.jsx'
 import fakeSpots from '../../client/src/components/mapview/fakeSpots.js';
 
 describe('MapView component', () => {
@@ -32,6 +33,13 @@ describe('Map component', () => {
 
 describe('Search component', () => {
   const wrapper = shallow(<Search />, {disableLifecycleMethods: true});
+  it('renders', () => {
+    expect(wrapper.exists()).toBe(true);
+  });
+});
+
+describe('Modal content', () => {
+  const wrapper = shallow(<ModalContent />, {disableLifecycleMethods: true});
   it('renders', () => {
     expect(wrapper.exists()).toBe(true);
   });
