@@ -4,6 +4,6 @@ module.exports.createProfile = require('./Profile.js').createProfile;
 module.exports.updateProfile = require('./Profile.js').updateProfile;
 module.exports.getNearbySpots = require('./getSpots.js').getNearbySpots;
 module.exports.getFreeSpots = require('./getSpots.js').getFreeSpots;
-module.exports.getUser = require('./getUser.js').getUser;
+module.exports.getUser = require('./Profile.js').getUser;
 module.exports.getMyBookings = require('./getMyBookings.js').getMyBookings;
 module.exports.postBooking = require('./postBooking.js').postBooking;

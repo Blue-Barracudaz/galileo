@@ -3,7 +3,7 @@ const Profile = require('./controllers/Profile');
 const getFreeSpotsRoute = require('./controllers/getSpots').getFreeSpotsRoute;
 
 const profileRequests = require('./controllers/profileRequests');
-const { getUser } = require('./controllers/getUser');
+// const { getUser } = require('./controllers/getUser');
 const Spot = require('./controllers/manageSpots')
 const myBookingsRoute = require('./controllers/getMyBookings.js').getMyBookingsRoute;
 const booking = require('./controllers/postBooking');
