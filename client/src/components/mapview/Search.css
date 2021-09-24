@@ -1,12 +1,10 @@
 #search-container {
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: center; */
-  margin-top: 20px;
-  height: 30%;
 }
 
 #search-result-count {
+  margin: auto;
   text-align: center;
   font-family: Helvetica, sans-serif;
   font-size: large;
@@ -14,8 +12,7 @@
 }
 
 #search-options-container {
-  margin-left: 40px;
-  margin-right: 40px;
+  margin: auto;
 }
 
 #reservation-options-container {
@@ -71,8 +68,7 @@ select {
 }
 
 #search-button-container {
-  margin-top: 20px;
   display: flex;
   justify-content: center;
-  padding-bottom: 20px;
+  margin: auto;
 }
