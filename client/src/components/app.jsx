@@ -11,7 +11,7 @@ import MyBookings from './myBookings/myBookings.jsx';
 import Booking from './booking/Booking.jsx';
 
 import {
-  HashRouter as Router,
+  // HashRouter as Router,
   Switch,
   Route,
   Link,
@@ -40,7 +40,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
+      // <Router>
         <div>
           <Switch>
             <Route path="/registration">
@@ -72,7 +72,7 @@ class App extends React.Component {
             </Route>
           </Switch>
         </div>
-      </Router>
+      // </Router>
 
     )
   };
