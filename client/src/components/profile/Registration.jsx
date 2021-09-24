@@ -59,7 +59,7 @@ class Registration extends React.Component {
   showBacktoLogin(){
     if (this.props.btn === 'Finish Registration') {
       return (
-        <div className="backtoLogin" onClick={() => {
+        <Link className="backtoLogin" ><div  onClick={() => {
           localStorage.removeItem('username');
           localStorage.removeItem('user_id');
           this.props.history.push('/');
@@ -67,7 +67,7 @@ class Registration extends React.Component {
           <div className="backBtn">{'\u1438'} </div>
           {/* <div className="backWord"> <Link to="/">Back to Login</Link></div> */}
           <div className="backWord"> Back to Login</div>
-        </div>
+        </div></Link>
       )
     }
   }
