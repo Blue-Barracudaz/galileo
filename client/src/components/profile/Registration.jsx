@@ -97,10 +97,7 @@ class Registration extends React.Component {
   }
 
   render() {
-    if (this.state.back)
-      {return (
-        <Login />
-      )}
+
 
     let className, username, change;
     if (this.props.btn === 'Save Information') {
@@ -141,4 +138,4 @@ class Registration extends React.Component {
 
 }
 
-export default withRouter(Registration);
+export default Registration;

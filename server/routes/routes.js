@@ -15,7 +15,7 @@ router.get('/my-profile/:user_id', Profile.getProfile);
 router.post('/create-account', Profile.createProfile);
 router.put('/update-my-profile', Profile.updateProfile);;
 router.get('/spots', getFreeSpotsRoute);
-router.post('/login', getUser);
+router.post('/login', Profile.getUser);
 router.get('/my-spots', Spot.getMySpots);
 router.get('/spot-details', Spot.getSpotDetails);
 router.put('/update-spot-details', Spot.updateSpotDetails);
