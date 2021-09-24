@@ -77,7 +77,7 @@ class ManageSpots extends React.Component {
           <SpotList spots={this.state.spots} handleSpotClick={this.handleSpotClick} />
         </div>
         <div className='button-container'>
-          <Button func={this.handleAddSpotClick} text={'Add Spot'} />
+          <Button func={this.handleAddSpotClick} text={'Add Spot'} height={'6vh'} width={'75%'} />
         </div>
       </div>;
 

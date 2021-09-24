@@ -105,25 +105,31 @@
   margin-top: 10%;
   width: 85%;
   height: 82vh;
+  overflow: scroll;
 }
 
 .spot-card {
   display: flex;
   flex-direction: row;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   border-radius: 15px;
-  box-shadow: 1px 4px grey;
+  box-shadow: 0 4px 10px 0 grey;
   align-items: center;
   padding: 10px;
   margin-bottom: 15px;
   /* height: 30%; */
+  color: #707070
 }
 
 .spot-card-info {
-  font-size: 2em;
+  font-size: 2vh;
   margin-right: 40px;
   margin-left: 40px;
   width: 40%;
+}
+
+.spot-price {
+  font-weight: bolder;
 }
 
 .spot-list {
