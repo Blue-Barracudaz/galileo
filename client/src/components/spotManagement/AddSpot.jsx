@@ -126,7 +126,7 @@ class AddSpot extends React.Component {
           <input type='text' id='price' className='txtBoxInput' onChange={this.handleChange}></input>
         </div>
        <div className='button-container'>
-        <Button func={this.handleConfirmClick} text={'Add Spot'}/>
+        <Button func={this.handleConfirmClick} text={'Confirm'} height={'6vh'} width={'75%'}/>
        </div>
       </div>
     )
