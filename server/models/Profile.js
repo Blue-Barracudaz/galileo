@@ -6,7 +6,6 @@ exports.getProfile = async (user_id) => {
     let ans = await client.query(query);
     return ans.rows[0];
   } catch (error) {
-    throw error;
   }
 }
 
