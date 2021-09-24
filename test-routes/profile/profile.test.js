@@ -16,7 +16,7 @@ beforeEach(async () => {
   );
 
   let insert = await db.query(`INSERT INTO users (username, password, first_name, last_name, email) VALUES ('owner1','1234','owner1','owner1','owner1@g.com') RETURNING username`)
-  // console.log('insert', insert);
+
 
 })
 
@@ -27,7 +27,7 @@ afterAll(async () => {
 describe ('GET USERS', () => {
   it('CHECKING USERS', async () => {
     let response = await request.get('/my-profile/1')
-    // console.log('RESPONSE', response.body);
+
     expect(response.statusCode).toBe(201);
   })
 })
@@ -48,5 +48,17 @@ describe ('Create a new user', () => {
     let getUserResponse = await request.get('/my-profile/2');
     // console.log('USER 2', getUserResponse.body);
     expect(getUserResponse.body.username).toEqual('owner2');
+    // user['password']='owner3';
+    let updateresponse = await request.put('/update-my-profile').send(user)
+    // console.log('NEW USER2', response.body);
+    expect(updateresponse.statusCode).toBe(500);
+    let loginuser = {
+      username: 'owner2',
+      password: 'owner2'
+    }
+    let getUserresponse = await request.post('/login').send(loginuser)
+    // console.log('NEW USER2', response.body);
+    expect(getUserresponse.statusCode).toBe(200);
+
   })
 })
