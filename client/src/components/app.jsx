@@ -8,6 +8,7 @@ import BottomModal from './shared/bottomModal/BottomModal.jsx';
 import ManageSpots from './spotManagement/ManageSpots.jsx';
 import TabSelector from './shared/tabSelector/TabSelector.jsx'
 import MyBookings from './myBookings/myBookings.jsx';
+import Booking from './booking/Booking.jsx';
 
 import {
   HashRouter as Router,
@@ -55,7 +56,10 @@ class App extends React.Component {
             {()=>(localStorage.getItem('user_id'))? <ManageSpots  />:<Redirect to='/'/>}
             </Route>
             <Route path="/bookings">
-              {()=>(localStorage.getItem('user_id'))? <MyBookings  />:<Redirect to='/'/>}
+              {()=>(localStorage.getItem('user_id'))? <MyBookings user_id={localStorage.getItem('user_id')}/>:<Redirect to='/'/>}
+            </Route>
+            <Route path="/reservation">
+              {()=>(localStorage.getItem('user_id'))? <Booking reservation={this.state.reservation} user_id={localStorage.getItem('user_id')} />:<Redirect to='/'/>}
             </Route>
 
 

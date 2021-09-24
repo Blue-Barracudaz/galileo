@@ -25,11 +25,11 @@ class Login extends React.Component {
   componentDidMount() {
     let username = localStorage.getItem('username');
     if (username) {
-      this.setState({username: username});
+      this.setState({ username: username });
     }
   }
 
-  handleChange(){
+  handleChange() {
     this.setState({
       [event.target.name]: event.target.value,
       message: ''
@@ -69,8 +69,8 @@ class Login extends React.Component {
       this.setState(newState);
 
     } catch (err) {
-    console.log('Login err: ', err);
-    // return err;
+      console.log('Login err: ', err);
+      // return err;
     }
   }
 

@@ -6,8 +6,9 @@
 4. PG_DB_PASS_TEST="<CIRCLECI_DB_PASSWORD>"
 5. GOOGLE_API="<YOUR_API_KEY>"
 6. AWS_ACCESS_KEY_ID="<YOUR_AWS_ACCESS_KEY>"
-7. AWS_SECRET_ACCESS_KEY="<YOUR_AWS_SECRET_ACCESS_KEY>"
-To get a Google Map API, please check out this link: https://developers.google.com/maps/gmp-get-started#create-project
+7. AWS_SECRET_ACCESS_KEY="<YOUR_AWS_SECRET_ACCESS_KEY>"  
+
+To get a Google Map API, please check out this link: https://developers.google.com/maps/gmp-get-started#create-project  
 To get AWS access key and secret access key look here: https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html
 
 ## To intialize the db

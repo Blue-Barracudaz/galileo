@@ -6,16 +6,36 @@
   right: 0;
   width: 100%;
   height: 5%;
+  min-height: 45px;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
   background: rgb(255, 255, 255, 0.8);
   padding: 3px 0;
   text-align: center;
   font-family: 'Helvetica';
   color: rgba(0, 0, 0, 0.7);
-  box-shadow: inset 0 5px 5px -5px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 1px 10px 0 #707070;
 }
 
 .page-header-hr {
   height: 5px;
   border: 0;
   box-shadow: inset 0 5px 5px -5px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  font-size: max(2vh, 20px);
+}
+
+.page-header-back {
+  cursor: pointer;
+  color: #cdc4f2;
+  font-size: 2.5vh;
+  font-weight: bolder;
+  padding: 3px 0;
+}
+
+.page-header-back-link {
+  color: inherit;
+  text-decoration: inherit;
 }

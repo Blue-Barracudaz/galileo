@@ -1,3 +1,7 @@
+#booking {
+  position: absolute;
+}
+
 #booking-header {
   height: 5vh;
 }
@@ -72,4 +76,9 @@
   font-weight: bold;
   padding-top: 3vh;
   padding-bottom: 2vh;
+}
+
+#booking-button-link {
+  margin-left: 22vw;
+  width: 100%;
 }
