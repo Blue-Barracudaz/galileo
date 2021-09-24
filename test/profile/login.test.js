@@ -22,15 +22,15 @@ describe('checks that Login component is rendering', () => {
 
     // const spy = jest.spyOn(Login.prototype, 'componentDidMount');
     // const wrapper = shallow(<Login />);
-    const wrapper = shallow(<Login />, {disableLifecycleMethods: true})
+    const wrapper = shallow(<Login.WrappedComponent />, {disableLifecycleMethods: true})
 
     it('should exist', () => {
       expect(wrapper.exists()).toBe(true);
       expect(wrapper.children()).toHaveLength(1);
     })
 
-    it('should not render child components', () => {
-      expect(wrapper.find(LoginBox).exists()).toBe(false);
+    it('should render child components', () => {
+      expect(wrapper.find(LoginBox).exists()).toBe(true);
     })
 
   })
