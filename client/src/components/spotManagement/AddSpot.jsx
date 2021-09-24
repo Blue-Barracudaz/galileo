@@ -3,8 +3,8 @@ import Button from '../shared/button/button.jsx';
 import axios from 'axios';
 import './spotManagement.css';
 import Geocode from "react-geocode";
-// Geocode.setApiKey(process.env.GOOGLE_API);
-// no page header
+import PageHeader from '../shared/pageHeader/pageHeader.jsx';
+
 
 class AddSpot extends React.Component {
   constructor(props) {
@@ -26,7 +26,6 @@ class AddSpot extends React.Component {
   }
 
   handleConfirmClick() {
-    // post spot to server/db
     let options = this.state;
 
     Geocode.fromAddress(this.state.address)
@@ -72,10 +71,8 @@ class AddSpot extends React.Component {
     formData.append('spotImage', event.target.files[0]);
     console.log('value', event.target.files[0]);
     console.log('formData', formData.get('spotImage'));
-    // send to server, add to s3
     axios.post(`http://localhost:3000/uploadImage`, formData)
       .then((results) => {
-        // upon success response, get the photo url from s3 and add it to state
         let url = results.data;
         console.log('photo post results', url);
         this.setPhotoUrl(url);
@@ -96,13 +93,19 @@ class AddSpot extends React.Component {
     } else {
       photoDisplay =
        <div className='add-spot-photo'>
-        <label for='file' className='photo-upload'>Add Photo</label>
+        <label htmlFor='file' className='photo-upload'>Add Photo</label>
         <input type="file" id='file' className='photo-input' accept='image/png, image/jpeg' onChange={this.sendFile}></input>
        </div>
     }
 
     return (
       <div className='add-spot-home'>
+       <div className="page-header">
+        <div className="page-header-back">
+          <div className="page-header-back-link" onClick={this.props.resetHomePage}>{'\u1438'}</div>
+        </div>
+        <h1 className="header">{'ADD SPOT'}</h1>
+       </div>
 
        <div className='add-spot-form'>
           {photoDisplay}
@@ -120,7 +123,7 @@ class AddSpot extends React.Component {
           <input type='text' id='price' className='txtBoxInput' onChange={this.handleChange}></input>
         </div>
        <div className='button-container'>
-        <Button func={this.handleConfirmClick} text={'Add Spot'}/>
+        <Button func={this.handleConfirmClick} text={'Confirm'} height={'6vh'} width={'75%'}/>
        </div>
       </div>
     )
