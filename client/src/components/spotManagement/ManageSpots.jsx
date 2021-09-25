@@ -89,7 +89,7 @@ class ManageSpots extends React.Component {
     }
 
     return (
-      <div>
+      <div className='host-home'>
         {tabBar}
         {mainContent}
       </div>
