@@ -8,12 +8,8 @@ import { withRouter, Link } from "react-router-dom";
 class Booking extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      hour: 20
-    };
-    this.hour = (this.props.reservation.UNIXend - this.props.reservation.UNIXstart) / 3600;
     this.fee = 0.75;
-    this.renterID = 3;
+    this.hour = (this.props.reservation.UNIXend - this.props.reservation.UNIXstart) / 3600;
     this.handleConfirmBookingButtonClick = this.handleConfirmBookingButtonClick.bind(this);
   }
 
