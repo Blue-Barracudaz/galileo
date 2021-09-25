@@ -1,7 +1,8 @@
 #search-container {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
+  margin-top: 20px;
   height: 30%;
 }
 
@@ -73,4 +74,5 @@ select {
   margin-top: 20px;
   display: flex;
   justify-content: center;
+  padding-bottom: 20px;
 }
