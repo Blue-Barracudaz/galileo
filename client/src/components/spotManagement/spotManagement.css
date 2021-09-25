@@ -12,17 +12,17 @@
 /* add spot */
 
 .add-spot-home {
-  /* margin: auto; */
+  margin: auto;
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 80%;
+  height: 100%;
   justify-content: space-between;
-  /* align-items: flex-start; */
+  align-items: flex-start;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
-
+  /* padding-top: 3%; */
   left: 0;
   right: 0;
   /* text-align: center; */
@@ -30,14 +30,18 @@
 
 .add-spot-form {
   margin: auto;
+  margin-top: 20%;
   display: flex;
   flex-direction: column;
+  /* justify-content: space-between; */
   width: 70%;
-  font-size: 1.6em;
+  height: 60%;
+  font-size: 2em;
 }
 
 .txtBoxInput {
   font-size: 1.3em;
+  margin-bottom: 8%;
 }
 
 
@@ -59,7 +63,7 @@
   border: none;
   border-radius: 15px;
   box-sizing: border-box;
-  font-size: 1.5em;
+  font-size: 1.2em;
   background-color: rgb(228, 228, 228);
   display: flex;
   flex-direction: column;
@@ -70,7 +74,10 @@
 
 .add-spot-select {
   padding: 20px 20px;
-  margin: 10px 0 20px 0;
+  margin: 10px 0 8% 0;
+  width: 100%;
+  height: 100px;
+  text-align: start;
   border: 3px solid #cdc4f2;
   border-radius: 8px;
   box-sizing: border-box;
@@ -84,10 +91,11 @@
   width: 100%;
   flex-direction: row;
   align-items: center;
-  /* position: fixed;
-  bottom: 0px; */
+  justify-content: center;
+  position: fixed;
+  bottom: 0px;
   margin-top: auto;
-  padding: 50px 0;
+  padding: 2vh 0;
   /* border-top: 12px solid lightgrey; */
 }
 
@@ -96,27 +104,34 @@
 /* my spots */
 
 .my-spots-container {
-  width: 100%;
-  height: 70vh;
+  margin-top: 10%;
+  width: 85%;
+  height: 82vh;
+  overflow: scroll;
 }
 
 .spot-card {
   display: flex;
   flex-direction: row;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   border-radius: 15px;
-  box-shadow: 1px 4px grey;
+  box-shadow: 0 4px 10px 0 grey;
   align-items: center;
   padding: 10px;
   margin-bottom: 15px;
-
+  /* height: 30%; */
+  color: #707070
 }
 
 .spot-card-info {
-  font-size: 2em;
+  font-size: 2vh;
   margin-right: 40px;
   margin-left: 40px;
   width: 40%;
+}
+
+.spot-price {
+  font-weight: bolder;
 }
 
 .spot-list {
@@ -125,15 +140,12 @@
   margin: 30px;
 }
 
-.spot-photo {
-  border-radius: 15px;
-}
-
 .spot-photo img{
-  height: 200px;
-  width: 300px;
+  /* height: 200px;
+  width: 300px; */
   object-fit: cover;
   border-radius: 10px;
+  /* display: none; */
 }
 
 /* photo */
