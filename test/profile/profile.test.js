@@ -16,9 +16,6 @@ test('checks that Profile component is rendering', () => {
   expect(wrapper.find(Registration).exists()).toEqual(true);
   wrapper = shallow(<Profile type={'registration'} />, {disableLifecycleMethods: true})
   expect(wrapper.find(Registration).exists()).toEqual(true);
-  // expect(wrapper.find('registration')).toHaveLength(1);
-  // expect(wrapper.find('label').exists()).toEqual(true);
-  // expect(wrapper.find('form').exists()).toEqual(true);
 });
 
 test('checks that Registration component is rendering for update', () => {
