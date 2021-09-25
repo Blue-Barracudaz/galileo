@@ -14,6 +14,17 @@ describe('spot component', () => {
     const wrapper = shallow(<Spot />, {disableLifecycleMethods: true})
     expect(wrapper.exists('.spot-card')).toBe(true);
   });
+
+  it('should render correct default image if no image given', () => {
+    const wrapper = shallow(<Spot photo={''}/>, {disableLifecycleMethods: true})
+    expect(wrapper.find('.card-photo').prop('src')).toBe('https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg');
+  });
+
+  it('should render correct image if image is supplied', () => {
+    const wrapper = shallow(<Spot photo={'photo-url'}/>, {disableLifecycleMethods: true})
+    expect(wrapper.find('.card-photo').prop('src')).toBe('photo-url');
+  });
+
 });
 
 describe('spotlist component', () => {
