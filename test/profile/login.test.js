@@ -37,9 +37,9 @@ describe('checks that Login component is rendering', () => {
     // const spy = jest.spyOn(Login.prototype, 'componentDidMount');
     // const wrapper = shallow(<Login />);
     const wrapper = shallow(<Login.WrappedComponent />, {disableLifecycleMethods: true});
-    const event = {
-      preventDefault: () => {}
-    };
+    // const event = {
+    //   preventDefault: () => {}
+    // };
 
     it('should exist', () => {
       expect(wrapper.exists()).toBe(true);
