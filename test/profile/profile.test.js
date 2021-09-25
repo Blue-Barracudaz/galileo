@@ -20,3 +20,13 @@ test('checks that Profile component is rendering', () => {
   // expect(wrapper.find('label').exists()).toEqual(true);
   // expect(wrapper.find('form').exists()).toEqual(true);
 });
+
+test('checks that Registration component is rendering for update', () => {
+  const wrapper = shallow(<Registration.WrappedComponent btn={'Save Information'}/>, {disableLifecycleMethods: false})
+  expect(wrapper.children()).toHaveLength(3);
+});
+
+test('checks that Registration component is rendering for registration', () => {
+  const wrapper = shallow(<Registration.WrappedComponent btn={'Finish Registration'}/>, {disableLifecycleMethods: false})
+  expect(wrapper.children()).toHaveLength(1);
+});
