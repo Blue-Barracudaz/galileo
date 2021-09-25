@@ -54,7 +54,7 @@ class AddSpot extends React.Component {
     })
   }
 
-  handleChange() {
+  handleChange(event) {
     this.setState({
       [event.target.id]: event.target.value,
     }, () => console.log('add spot state', this.state));
@@ -110,7 +110,7 @@ class AddSpot extends React.Component {
        <div className='add-spot-form'>
           {photoDisplay}
           <label>Address</label>
-          <input type="text" id="address" className='txtBoxInput' onChange={this.handleChange}></input>
+          <input type="text" id="address" className='txtBoxInput add-spot-address' onChange={this.handleChange}></input>
           <label>Type</label>
           <select className='txtBoxInput add-spot-select' id='type' onChange={this.handleChange}>
             <option value='driveway'>Driveway</option>
@@ -120,7 +120,7 @@ class AddSpot extends React.Component {
             <option value='outdoor'>Outdoor</option>
           </select>
           <label>Price</label>
-          <input type='text' id='price' className='txtBoxInput' onChange={this.handleChange}></input>
+          <input type='text' id='price' className='txtBoxInput add-spot-price' onChange={this.handleChange}></input>
         </div>
        <div className='button-container'>
         <Button func={this.handleConfirmClick} text={'Confirm'} height={'6vh'} width={'75%'}/>

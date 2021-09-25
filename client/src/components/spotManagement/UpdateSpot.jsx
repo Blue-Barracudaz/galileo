@@ -62,7 +62,7 @@ class UpdateSpot extends React.Component {
 
   }
 
-  handleChange() {
+  handleChange(event) {
     this.setState({
       [event.target.id]: event.target.value,
     }, () => console.log('edit spot state', this.state));
@@ -93,7 +93,7 @@ class UpdateSpot extends React.Component {
   render() {
 
     return (
-      <div className='add-spot-home'>
+      <div className='add-spot-home update-spot'>
         <div className="page-header">
           <div className="page-header-back">
             <div className="page-header-back-link" onClick={this.props.resetHomePage}>{'\u1438'}</div>
@@ -102,13 +102,13 @@ class UpdateSpot extends React.Component {
         </div>
 
        <div className='add-spot-form'>
-          <div style={{backgroundImage: `url("${this.state.photo}")`, backgroundSize: 'cover'}}className='add-spot-photo'>
+          <div style={{backgroundImage: `url("${this.state.photo}")`, backgroundSize: 'cover'}} className='add-spot-photo'>
             <label htmlFor='file' style={{color: 'white'}} className='photo-upload'>Edit Photo</label>
             <input type="file" id='file' className='photo-input' accept='image/png, image/jpeg' onChange={this.sendFile}></input>
           </div>
 
           <label>Address</label>
-          <input type="text" id="address" value={this.state.address} className='txtBoxInput' onChange={this.handleChange} disabled></input>
+          <input type="text" id="address" value={this.state.address} className='txtBoxInput add-spot-address' onChange={this.handleChange} disabled></input>
           <label>Type</label>
           <select value={this.state.type} className='txtBoxInput add-spot-select' id='type' onChange={this.handleChange}>
             <option value='driveway'>Driveway</option>
@@ -118,7 +118,7 @@ class UpdateSpot extends React.Component {
             <option value='outdoor'>Outdoor</option>
           </select>
           <label>Price</label>
-          <input type='text' id='price' value={this.state.price} className='txtBoxInput' onChange={this.handleChange}></input>
+          <input type='text' id='price' value={this.state.price} className='txtBoxInput add-spot-price' onChange={this.handleChange}></input>
       </div>
 
       <div className='button-container'>
