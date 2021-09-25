@@ -79,7 +79,7 @@ class Search extends React.Component {
     return (
       <div id="search-container">
         <div id="search-result-count">{spots}</div>
-        <div id="search-options-container">
+
           <div className='line'></div>
           <TxtBox
             label={'Location'}
@@ -105,12 +105,10 @@ class Search extends React.Component {
               <Picker label={'End Time'} options={times} initialValue={times[1]} onChangeCB={this.handleEndTimeSelect}/>
             </div>
           </div>
-        </div>
-        <div id="search-button-container">
           <div id="search-button">
           <Button text={'Search'} width={'500px'} height={'75px'} func={this.handleSearch}/>
           </div>
-        </div>
+
       </div>
     );
   }
