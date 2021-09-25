@@ -1,7 +1,7 @@
 #search-container {
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 40px;
   justify-content: space-between;
   height: 30%;
 }
@@ -34,9 +34,10 @@
 .line {
   background-color:#4C4C56;
   opacity: .3;
-  height: 2px;
+  min-height: 2px;
   margin-top: 20px;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .txtBox {
@@ -79,4 +80,6 @@ select {
 
 #search-button {
   margin: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
