@@ -65,6 +65,65 @@ describe('manage spots component', () => {
   });
 });
 
+describe('add spot component', () => {
+
+  it('checks that add spot component is rendering', () => {
+    const wrapper = shallow(<AddSpot />, {disableLifecycleMethods: true});
+    expect(wrapper.exists('.add-spot-home')).toBe(true);
+  });
+
+  it('should update state with user input', () => {
+    const wrapper = shallow(<AddSpot />, {disableLifecycleMethods: true});
+    expect(wrapper.find('.add-spot-address').props().value).toBe(undefined);
+    wrapper.find('.add-spot-address').simulate('change', { target: { id: 'address', value: 'address1'} });
+    wrapper.update();
+    expect(wrapper.state('address')).toBe('address1');
+  });
+
+});
+
+describe('update spot component', () => {
+
+  it('checks that update spot component is rendering', () => {
+    const wrapper = shallow(<UpdateSpot />, {disableLifecycleMethods: true});
+    expect(wrapper.exists('.update-spot')).toBe(true);
+  });
+
+  it('should load current spot details on initial render', () => {
+    const wrapper = shallow(<UpdateSpot />, {disableLifecycleMethods: true});
+    wrapper.setState({
+      address: 'address1',
+      type: 'type1',
+      price: 'price1',
+      photo: 'photo1'
+    });
+    expect(wrapper.find('.add-spot-address').props().value).toBe('address1');
+    expect(wrapper.find('.add-spot-price').props().value).toBe('price1');
+    expect(wrapper.find('.add-spot-select').props().value).toBe('type1');
+  });
+
+  it('should display current spot photo on initial render', () => {
+    const wrapper = shallow(<UpdateSpot />, {disableLifecycleMethods: true});
+    wrapper.setState({
+      address: 'address1',
+      type: 'type1',
+      price: 'price1',
+      photo: 'photo1'
+    });
+    expect(wrapper.find('.add-spot-photo').get(0).props.style).toHaveProperty('backgroundImage', 'url("photo1")');
+  });
+
+  it('should update state with user input', () => {
+    const wrapper = shallow(<UpdateSpot />, {disableLifecycleMethods: true});
+    expect(wrapper.find('.add-spot-address').props().value).toBe('');
+    wrapper.find('.add-spot-address').simulate('change', { target: { id: 'address', value: 'address1'} });
+    wrapper.update();
+    expect(wrapper.state('address')).toBe('address1');
+    expect(wrapper.find('.add-spot-address').props().value).toBe('address1');
+  });
+
+});
+
 
 
 
