@@ -24,7 +24,7 @@ To get AWS access key and secret access key look here: https://docs.aws.amazon.c
 Go to http://localhost:3000 to view the project.
 
 ## Testing
-Run tests once: npm test.
-Run tests in watch-mode: npm run test-w.
-Check coverage of tests: npm run coverage.
+Run tests once: npm test.   
+Run tests in watch-mode: npm run test-w.   
+Check coverage of tests: npm run coverage.   
 
