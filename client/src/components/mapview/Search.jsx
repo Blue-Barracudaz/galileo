@@ -48,7 +48,8 @@ class Search extends React.Component {
 
   handleStartDateSelect(date) {
     this.setState({
-      startDate: date
+      startDate: date,
+      endDate: date
     })
   }
 
@@ -79,7 +80,7 @@ class Search extends React.Component {
     return (
       <div id="search-container">
         <div id="search-result-count">{spots}</div>
-        <div id="search-options-container">
+
           <div className='line'></div>
           <TxtBox
             label={'Location'}
@@ -91,12 +92,12 @@ class Search extends React.Component {
             <div className="reservation-options-element">
               <div className="search-label">Start Date</div>
               {/* <label>{'Start Date'}</label> */}
-              <DatePicker selected={this.state.startDate} onChange={this.handleStartDateSelect} />
+              <DatePicker selected={this.state.startDate} minDate={new Date()} onChange={this.handleStartDateSelect} />
             </div>
             <div className="reservation-options-element">
               <div className="search-label">End Date</div>
               {/* <label>{'End Date'}</label> */}
-              <DatePicker selected={this.state.endDate} onChange={this.handleEndDateSelect} />
+              <DatePicker selected={this.state.endDate} minDate={this.state.startDate} onChange={this.handleEndDateSelect} />
             </div>
             <div className="reservation-options-element">
               <Picker label={'Start Time'} options={times} initialValue={times[0]} onChangeCB={this.handleStartTimeSelect}/>
@@ -105,12 +106,10 @@ class Search extends React.Component {
               <Picker label={'End Time'} options={times} initialValue={times[1]} onChangeCB={this.handleEndTimeSelect}/>
             </div>
           </div>
-        </div>
-        <div id="search-button-container">
           <div id="search-button">
           <Button text={'Search'} width={'500px'} height={'75px'} func={this.handleSearch}/>
           </div>
-        </div>
+
       </div>
     );
   }
