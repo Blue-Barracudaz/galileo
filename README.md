@@ -5,11 +5,8 @@
 3. PG_DB_PASS_DEV="<YOUR_PASSWORD>"
 4. PG_DB_PASS_TEST="<CIRCLECI_DB_PASSWORD>"
 5. GOOGLE_API="<YOUR_API_KEY>"
-6. AWS_ACCESS_KEY_ID="<YOUR_AWS_ACCESS_KEY>"
-7. AWS_SECRET_ACCESS_KEY="<YOUR_AWS_SECRET_ACCESS_KEY>"  
 
-To get a Google Map API, please check out this link: https://developers.google.com/maps/gmp-get-started#create-project  
-To get AWS access key and secret access key look here: https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html
+To get a Google Map API, please check out this link: https://developers.google.com/maps/gmp-get-started#create-project
 
 ## To intialize the db
 1. Install PostGIS using homebrew (preferred). https://postgis.net/install/
@@ -24,7 +21,7 @@ To get AWS access key and secret access key look here: https://docs.aws.amazon.c
 Go to http://localhost:3000 to view the project.
 
 ## Testing
-Run tests once: npm test.   
-Run tests in watch-mode: npm run test-w.   
-Check coverage of tests: npm run coverage.   
+Run tests once: npm test.
+Run tests in watch-mode: npm run test-w.
+Check coverage of tests: npm run coverage.
 
