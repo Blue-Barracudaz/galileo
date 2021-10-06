@@ -1,24 +1,26 @@
 #search-container {
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: center; */
-  margin-top: 20px;
+  margin: 40px;
+  justify-content: space-between;
   height: 30%;
 }
 
 #search-result-count {
+  margin: auto;
   text-align: center;
   font-family: Helvetica, sans-serif;
   font-size: large;
   font-weight: bold;
 }
 
-#search-options-container {
-  margin-left: 40px;
-  margin-right: 40px;
-}
+/* #search-options-container {
+  margin: auto;
+} */
 
 #reservation-options-container {
+  margin: auto;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -32,10 +34,16 @@
 .line {
   background-color:#4C4C56;
   opacity: .3;
-  height: 2px;
+  min-height: 2px;
   margin-top: 20px;
   margin-bottom: 20px;
+  width: 100%;
 }
+
+.txtBox {
+  width: 100%;
+}
+
 .search-label {
   font-family: Helvetica, sans-serif;
   color: #707070;
@@ -70,9 +78,8 @@ select {
   width: 175px;
 }
 
-#search-button-container {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
+#search-button {
+  margin: auto;
+  padding-top: 20px;
   padding-bottom: 20px;
 }
