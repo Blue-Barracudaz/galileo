@@ -76,7 +76,6 @@ const uploadImage = (req, res) => {
     })
   });
 
-
   form.parse(req);
 }
 
