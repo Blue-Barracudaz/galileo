@@ -1,5 +1,4 @@
 const model = require('../../models/manageSpots.js');
-const fs = require('fs');
 const AWS = require('aws-sdk');
 const multiparty = require('multiparty');
 
@@ -69,13 +68,15 @@ const uploadImage = (req, res) => {
     s3.upload(params, (err, data) => {
       if (err) {
         console.log('error adding img to s3', err);
-        res.sendStatus(500);
+        res.sendStatus(400);
       } else {
         res.status(201);
         res.send(data.Location);
       }
     })
   });
+
+
   form.parse(req);
 }
 
