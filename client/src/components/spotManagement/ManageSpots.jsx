@@ -32,7 +32,6 @@ class ManageSpots extends React.Component {
   }
 
   getAllHostSpots(id) {
-    // get all spots from server for current user/host
     axios.get(`http://localhost:3000/my-spots?id=${id}`)
       .then((results) => {
         console.log('results');
@@ -44,7 +43,6 @@ class ManageSpots extends React.Component {
   }
 
   handleSpotClick(id) {
-    // jump to edit spot page
     this.setState({
       updateSpot: true,
       currentSpotId: id
@@ -52,7 +50,6 @@ class ManageSpots extends React.Component {
   }
 
   handleAddSpotClick(e) {
-    // jump to add spots page
     this.setState({
       addSpot: true,
     });

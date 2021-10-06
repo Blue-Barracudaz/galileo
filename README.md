@@ -20,13 +20,9 @@ PG_DB_USER_DEV="<YOUR_USERNAME>"
 PG_DB_PASS_DEV="<YOUR_PASSWORD>"
 PG_DB_PASS_TEST="<CIRCLECI_DB_PASSWORD>"
 GOOGLE_API="<YOUR_API_KEY>"
-AWS_ACCESS_KEY_ID="<YOUR_AWS_ACCESS_KEY>"
-AWS_SECRET_ACCESS_KEY="<YOUR_AWS_SECRET_ACCESS_KEY>"
 ```
 
 ### To get a Google Map API, please check out this link: https://developers.google.com/maps/gmp-get-started#create-project
-
-### To get AWS access key and secret access key look here: https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html
 
 ### To intialize the db:
 1. Install PostGIS using homebrew (preferred). https://postgis.net/install/
@@ -85,7 +81,13 @@ Profile page displays account information associated with the user currently log
 ![Rent](readme/rent.png?raw=true "Rent")
 
 ### [Host](#host)
-![Host](readme/host.png?raw=true "Host")
+![Host](readme/hostpage.png?raw=true "Host")
+
+The Spot Management home page is where users can go see the spots they have currently have listed for rent. The home page displays a scrollable list of current spots the user is hosting. From there users can either add a new parking spot by clicking the botton button or edit a parking spot by clicking the right arrow icon on any spot displayed in the list. The navigation bar is still visible on this home page for users to jump elsewhere.
+
+The Add Spot page allows users to upload a local image of their parking spot, select the type of spot they are listing, as well as the hourly price the new spot will be. Clicking "Confirm" will upload the new spot info and redirect back to the Spot Management home page where the new parking spot will now be shown. Clicking the back arrow will cancel the current add spot session and return to Spot Management home page.
+
+The Edit Spot page is where users can change either the image or the hourly price for currently selected spot. The address cannot be changed. Clicking "Save" will update the spot information and redirect back to the Spot Management home page. Clicking the back arrow will cancel the current edit session and return to Spot Management home page.
 
 ### [Bookings](#bookings)
 ![Bookings](readme/bookings.png?raw=true "Bookings")
