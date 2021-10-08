@@ -20,9 +20,33 @@ PG_DB_USER_DEV="<YOUR_USERNAME>"
 PG_DB_PASS_DEV="<YOUR_PASSWORD>"
 PG_DB_PASS_TEST="<CIRCLECI_DB_PASSWORD>"
 GOOGLE_API="<YOUR_API_KEY>"
+AWS_ACCESS_KEY_ID="<YOUR_AWS_ACCESS_KEY>"
+AWS_ACCESS_KEY_ID="<YOUR_AWS_SECRET_ACCESS_KEY>"
+S3_BUCKET_NAME="<YOUR_S3_BUCKET_NAME>"
 ```
 
 ### To get a Google Map API, please check out this link: https://developers.google.com/maps/gmp-get-started#create-project
+
+### To set up AWS Access Keys, please check out this link: https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html
+
+### AWS S3 Bucket setup for photo storage
+1. Create new S3 Bucket https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html
+2. Allow all public access
+3. Go to bucket permissions and add the following Bucket Policy:
+```bash
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AddPerm",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::<YOUR-BUCKET-NAME>/*"
+        }
+    ]
+}
+```
 
 ### To intialize the db:
 1. Install PostGIS using homebrew (preferred). https://postgis.net/install/

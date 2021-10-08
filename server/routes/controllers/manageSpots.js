@@ -62,7 +62,7 @@ const uploadImage = (req, res) => {
 
   form.on('part', function(part) {
     const params = {
-      Bucket: 'galileo-boc',
+      Bucket: process.env.S3_BUCKET_NAME,
       Key: `${Date.now()}`,
       Body: part,
       ContentType:'image/jpeg'
