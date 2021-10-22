@@ -14,22 +14,12 @@
   font-weight: bold;
 }
 
-/* #search-options-container {
-  margin: auto;
-} */
-
 #reservation-options-container {
   margin: auto;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-
-/* .txtBoxInput {
-  background-image: url(search_icon.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-} */
 
 .line {
   background-color:#4C4C56;

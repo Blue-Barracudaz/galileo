@@ -12,18 +12,18 @@ class MapView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      center: { // the default starting location of the map // TODO: get user's location
+      center: {
         lat: 37.7749,
         lng: -122.4194
       },
-      UNIXstart: null, //  passed to modal view
-      UNIXend: null, //  passed to modal view
-      reservationStartTime: null, //  passed to modal view
-      reservationEndTime: null, //  passed to modal view
-      reservationStartDate: null, //  passed to modal view
-      reservationEndDate: null, //  passed to modal view
-      spots: [], // passed to map component and rendered
-      selectedSpot: '', // passed to modal
+      UNIXstart: null,
+      UNIXend: null,
+      reservationStartTime: null,
+      reservationEndTime: null,
+      reservationStartDate: null,
+      reservationEndDate: null,
+      spots: [],
+      selectedSpot: '',
       showBottomModal: false,
       spotSelected: false,
     };
@@ -96,16 +96,15 @@ class MapView extends React.Component {
           selectSpot={this.selectSpot}
           spotSelected={this.state.spotSelected}
           openBottomModal={this.openBottomModal}
-          searchMade={this.state.reservationStartTime} // using reservation start to indicate if a search has been made. it will be null until user searches...
+          searchMade={this.state.reservationStartTime}
         />
         <Search
-          searchMade={this.state.reservationStartTime} // using reservation start to indicate if a search has been made. it will be null until user searches...
+          searchMade={this.state.reservationStartTime}
           spotsFound={this.state.spots.length === 1 ? '1 nearby spot' : `${this.state.spots.length} nearby spots`}
           getFreeSpotsAndUpdate={this.getFreeSpotsAndUpdate}
         />
         <BottomModal
           isModalOpen={this.state.showBottomModal}
-          // modalHeaderContent={<div>{this.state.spots.length === 1 ? '1 nearby spot' : `${this.state.spots.length} nearby spots`}</div>}
           modalContent={<ModalContent
             handleBookNow={this.props.handleBookNow}
             address={this.state.selectedSpot.address}
