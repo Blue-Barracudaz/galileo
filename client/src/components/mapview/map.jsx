@@ -37,14 +37,14 @@ class MapContainer extends React.Component {
                 <Marker
                   key={spot.spot_id}
                   icon={this.props.spotSelected && this.state.selected.spot_id === spot.spot_id ? {url: './markerActive.png'} : {url: './marker.png'}}
-                  position={spot.location}  // TODO update positioning of custom marker icon
+                  position={spot.location}
                   onClick={() => this.onClick(spot)}
                 />
               )
             })
           }
           {
-            this.props.searchMade && <Marker position={this.props.center} // user searched location marker
+            this.props.searchMade && <Marker position={this.props.center}
           />}
         </GoogleMap>
       </LoadScript>
