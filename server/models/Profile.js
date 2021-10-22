@@ -13,7 +13,6 @@ exports.createProfile = async (post) => {
 
   const {username,password,email,first_name,last_name}= post;
   let query = `INSERT INTO users (user_id,username, password, first_name, last_name, email) VALUES (default,'${username}','${password}','${first_name}','${last_name}','${email}')  ON CONFLICT (username) DO NOTHING`;
-  // console.log(query)
   try {
     let ans = await client.query(query);
     return ans;
@@ -41,14 +40,12 @@ exports.updateProfile = async (post,user_id) =>{
 
 
 exports.getUser = async (username) => {
-  // console.log('getUser from models username: ', username);
   let query = `SELECT user_id, password FROM users where username='${username}';`;
   try {
     let user = await client.query(query);
     return user.rows[0];
   } catch (err) {
     console.log('err from models: ', err);
-    // return err;
   }
 };
 
