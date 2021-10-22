@@ -14,8 +14,8 @@ class Search extends React.Component {
     super(props);
     this.state = {
       address: '',
-      startTime: '', // TODO implement a default value - the nearest hour
-      endTime: '', // TODO implement a default value - nearest hour + 1
+      startTime: '',
+      endTime: '',
       startDate: new Date(),
       endDate: new Date(),
     };
@@ -80,7 +80,6 @@ class Search extends React.Component {
     return (
       <div id="search-container">
         <div id="search-result-count">{spots}</div>
-
           <div className='line'></div>
           <TxtBox
             label={'Location'}
@@ -91,12 +90,10 @@ class Search extends React.Component {
           <div id="reservation-options-container">
             <div className="reservation-options-element">
               <div className="search-label">Start Date</div>
-              {/* <label>{'Start Date'}</label> */}
               <DatePicker selected={this.state.startDate} minDate={new Date()} onChange={this.handleStartDateSelect} />
             </div>
             <div className="reservation-options-element">
               <div className="search-label">End Date</div>
-              {/* <label>{'End Date'}</label> */}
               <DatePicker selected={this.state.endDate} minDate={this.state.startDate} onChange={this.handleEndDateSelect} />
             </div>
             <div className="reservation-options-element">
@@ -109,7 +106,6 @@ class Search extends React.Component {
           <div id="search-button">
           <Button text={'Search'} width={'500px'} height={'75px'} func={this.handleSearch}/>
           </div>
-
       </div>
     );
   }
